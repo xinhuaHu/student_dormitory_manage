@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="IDormitory.cs" />
+    <Compile Include="IEmployee.cs" />
+    <Compile Include="IRepair.cs" />
+    <Compile Include="IStustay.cs" />
+    <Compile Include="IUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
