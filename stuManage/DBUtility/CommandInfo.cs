@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace LibraryMis.DBUtility
+namespace stuManage.DBUtility
 {
     public enum EffentNextType
     {

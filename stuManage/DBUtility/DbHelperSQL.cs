@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 
-namespace LibraryMis.DBUtility
+namespace stuManage.DBUtility
 {
     public abstract class DbHelperSQL
     {

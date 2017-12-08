@@ -1,10 +1,26 @@
-﻿using System;
+﻿/**  版本信息模板在安装目录下，可自行修改。
+* Employee.cs
+*
+* 功 能： N/A
+* 类 名： Employee
+*
+* Ver    变更日期             负责人  变更内容
+* ───────────────────────────────────
+* V0.01  2017-12-08 15:10:26   N/A    初版
+*
+* Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
+*┌──────────────────────────────────┐
+*│　此技术信息为本公司机密信息，未经本公司书面同意禁止向第三方披露．　│
+*│　版权所有：动软卓越（北京）科技有限公司　　　　　　　　　　　　　　│
+*└──────────────────────────────────┘
+*/
+using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using stuManage.IDAL;
-using LibraryMis.DBUtility;
-//using stuManage.DBUtility;//Please add references
+using stuManage.DBUtility;
+//Please add references
 namespace stuManage.SQLServerDAL
 {
 	/// <summary>
@@ -39,12 +55,13 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Employee(");
-			strSql.Append("emp_num,emp_name,emp_age,flo_num,emp_sex,position,con_infor)");
+			strSql.Append("emp_num,emp_name,emp_passwd,emp_age,flo_num,emp_sex,position,con_infor)");
 			strSql.Append(" values (");
-			strSql.Append("@emp_num,@emp_name,@emp_age,@flo_num,@emp_sex,@position,@con_infor)");
+			strSql.Append("@emp_num,@emp_name,@emp_passwd,@emp_age,@flo_num,@emp_sex,@position,@con_infor)");
 			SqlParameter[] parameters = {
 					new SqlParameter("@emp_num", SqlDbType.Char,10),
 					new SqlParameter("@emp_name", SqlDbType.VarChar,10),
+					new SqlParameter("@emp_passwd", SqlDbType.VarChar,20),
 					new SqlParameter("@emp_age", SqlDbType.Int,4),
 					new SqlParameter("@flo_num", SqlDbType.Char,10),
 					new SqlParameter("@emp_sex", SqlDbType.Char,2),
@@ -52,11 +69,12 @@ namespace stuManage.SQLServerDAL
 					new SqlParameter("@con_infor", SqlDbType.Char,11)};
 			parameters[0].Value = model.emp_num;
 			parameters[1].Value = model.emp_name;
-			parameters[2].Value = model.emp_age;
-			parameters[3].Value = model.flo_num;
-			parameters[4].Value = model.emp_sex;
-			parameters[5].Value = model.position;
-			parameters[6].Value = model.con_infor;
+			parameters[2].Value = model.emp_passwd;
+			parameters[3].Value = model.emp_age;
+			parameters[4].Value = model.flo_num;
+			parameters[5].Value = model.emp_sex;
+			parameters[6].Value = model.position;
+			parameters[7].Value = model.con_infor;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -76,6 +94,7 @@ namespace stuManage.SQLServerDAL
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update Employee set ");
 			strSql.Append("emp_name=@emp_name,");
+			strSql.Append("emp_passwd=@emp_passwd,");
 			strSql.Append("emp_age=@emp_age,");
 			strSql.Append("flo_num=@flo_num,");
 			strSql.Append("emp_sex=@emp_sex,");
@@ -84,6 +103,7 @@ namespace stuManage.SQLServerDAL
 			strSql.Append(" where emp_num=@emp_num ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@emp_name", SqlDbType.VarChar,10),
+					new SqlParameter("@emp_passwd", SqlDbType.VarChar,20),
 					new SqlParameter("@emp_age", SqlDbType.Int,4),
 					new SqlParameter("@flo_num", SqlDbType.Char,10),
 					new SqlParameter("@emp_sex", SqlDbType.Char,2),
@@ -91,12 +111,13 @@ namespace stuManage.SQLServerDAL
 					new SqlParameter("@con_infor", SqlDbType.Char,11),
 					new SqlParameter("@emp_num", SqlDbType.Char,10)};
 			parameters[0].Value = model.emp_name;
-			parameters[1].Value = model.emp_age;
-			parameters[2].Value = model.flo_num;
-			parameters[3].Value = model.emp_sex;
-			parameters[4].Value = model.position;
-			parameters[5].Value = model.con_infor;
-			parameters[6].Value = model.emp_num;
+			parameters[1].Value = model.emp_passwd;
+			parameters[2].Value = model.emp_age;
+			parameters[3].Value = model.flo_num;
+			parameters[4].Value = model.emp_sex;
+			parameters[5].Value = model.position;
+			parameters[6].Value = model.con_infor;
+			parameters[7].Value = model.emp_num;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -159,7 +180,7 @@ namespace stuManage.SQLServerDAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 emp_num,emp_name,emp_age,flo_num,emp_sex,position,con_infor from Employee ");
+			strSql.Append("select  top 1 emp_num,emp_name,emp_passwd,emp_age,flo_num,emp_sex,position,con_infor from Employee ");
 			strSql.Append(" where emp_num=@emp_num ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@emp_num", SqlDbType.Char,10)			};
@@ -194,6 +215,10 @@ namespace stuManage.SQLServerDAL
 				{
 					model.emp_name=row["emp_name"].ToString();
 				}
+				if(row["emp_passwd"]!=null)
+				{
+					model.emp_passwd=row["emp_passwd"].ToString();
+				}
 				if(row["emp_age"]!=null && row["emp_age"].ToString()!="")
 				{
 					model.emp_age=int.Parse(row["emp_age"].ToString());
@@ -224,7 +249,7 @@ namespace stuManage.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select emp_num,emp_name,emp_age,flo_num,emp_sex,position,con_infor ");
+			strSql.Append("select emp_num,emp_name,emp_passwd,emp_age,flo_num,emp_sex,position,con_infor ");
 			strSql.Append(" FROM Employee ");
 			if(strWhere.Trim()!="")
 			{
@@ -244,7 +269,7 @@ namespace stuManage.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" emp_num,emp_name,emp_age,flo_num,emp_sex,position,con_infor ");
+			strSql.Append(" emp_num,emp_name,emp_passwd,emp_age,flo_num,emp_sex,position,con_infor ");
 			strSql.Append(" FROM Employee ");
 			if(strWhere.Trim()!="")
 			{

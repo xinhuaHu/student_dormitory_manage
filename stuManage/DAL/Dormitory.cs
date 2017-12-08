@@ -3,7 +3,7 @@ using System.Data;
 using System.Text;
 using System.Data.SqlClient;
 using stuManage.IDAL;
-using LibraryMis.DBUtility;
+using stuManage.DBUtility;
 //using stuManage.DBUtility;//Please add references
 namespace stuManage.SQLServerDAL
 {
