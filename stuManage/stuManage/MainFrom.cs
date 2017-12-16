@@ -29,7 +29,9 @@ namespace stuManage
             //gridDataList.Add(new Person("Adrian", "Smith", "some comment"));
             //gridDataList.Add(new Person("Gabriella", "Smith", "some comment"));
         }
-
+        /// <summary>
+        /// 添加学生
+        /// </summary>
         AddStu addstu;
         private void addStu_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -42,6 +44,55 @@ namespace stuManage
             addstu.MdiParent = this;
             addstu.WindowState = FormWindowState.Maximized;
             addstu.Show();
+        }
+        /// <summary>
+        /// 删除学生
+        /// </summary>
+        DelStu delStu;
+        private void DelStu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            delStu = new DelStu();
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                tempChild.Close();
+            }
+            delStu.MdiParent = this;
+            delStu.WindowState = FormWindowState.Maximized;
+            delStu.Show();
+        }
+        /// <summary>
+        /// 修改学生
+        /// </summary>
+        EditStu editStu;
+        private void EditStu_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            editStu = new EditStu();
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                tempChild.Close();
+            }
+            editStu.MdiParent = this;
+            editStu.WindowState = FormWindowState.Maximized;
+            editStu.Show();
+        }
+
+        /// <summary>
+        /// 宿舍查询
+        /// </summary>
+        Dorm drom;
+        private void Dorm_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            drom = new Dorm();
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                tempChild.Close();
+            }
+            drom.MdiParent = this;
+            drom.WindowState = FormWindowState.Maximized;
+            drom.Show();
         }
     }
 }

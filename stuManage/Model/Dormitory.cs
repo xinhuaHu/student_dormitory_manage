@@ -3,6 +3,7 @@ namespace stuManage.Model
 {
 	/// <summary>
 	/// Dormitory:实体类(属性说明自动提取数据库字段的描述信息)
+    /// 宿舍表
 	/// </summary>
 	[Serializable]
 	public partial class Dormitory
@@ -15,7 +16,7 @@ namespace stuManage.Model
 		private int _num_occupants;
 		private int _live_num;
 		/// <summary>
-		/// 
+		/// 楼号
 		/// </summary>
 		public string flo_num
 		{
@@ -23,7 +24,7 @@ namespace stuManage.Model
 			get{return _flo_num;}
 		}
 		/// <summary>
-		/// 
+		/// 宿舍号
 		/// </summary>
 		public string dor_num
 		{
@@ -31,7 +32,7 @@ namespace stuManage.Model
 			get{return _dor_num;}
 		}
 		/// <summary>
-		/// 
+        /// 已住人数
 		/// </summary>
 		public int num_occupants
 		{
@@ -39,7 +40,7 @@ namespace stuManage.Model
 			get{return _num_occupants;}
 		}
 		/// <summary>
-		/// 
+		/// 可住人数
 		/// </summary>
 		public int live_num
 		{

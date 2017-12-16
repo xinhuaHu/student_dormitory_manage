@@ -15,7 +15,7 @@ namespace stuManage
         {
             InitializeComponent();
         }
-        private stuManage.BLL.Stustay bll = new stuManage.BLL.Stustay();
+        private stuManage.BLL.AddStu bll = new stuManage.BLL.AddStu();
         private DataTable baseDataTable;
 
         public bool isadd = true;
@@ -60,7 +60,7 @@ namespace stuManage
         private void sBtn_Ok_Click(object sender, EventArgs e)
         {
             //增加一条新记录
-            stuManage.Model.Stustay model = new stuManage.Model.Stustay();
+            stuManage.Model.AddStu model = new stuManage.Model.AddStu();
             model.num = txtStuNum.EditValue.ToString();
             model.name = txtStuname.EditValue.ToString();
             model.sex = txtStusex.EditValue.ToString();

@@ -3,12 +3,11 @@ namespace stuManage.Model
 {
 	/// <summary>
 	/// Stustay:实体类(属性说明自动提取数据库字段的描述信息)
-    /// 学生住宿表
 	/// </summary>
 	[Serializable]
-	public partial class Stustay
+	public partial class AddStu
 	{
-		public Stustay()
+        public AddStu()
 		{}
 		#region Model
 		private string _num;
@@ -19,7 +18,7 @@ namespace stuManage.Model
 		private string _flo_num;
 		private string _dor_num;
 		/// <summary>
-		/// 学号
+		/// 
 		/// </summary>
 		public string num
 		{
@@ -27,7 +26,7 @@ namespace stuManage.Model
 			get{return _num;}
 		}
 		/// <summary>
-		/// 姓名
+		/// 
 		/// </summary>
 		public string name
 		{
@@ -35,7 +34,7 @@ namespace stuManage.Model
 			get{return _name;}
 		}
 		/// <summary>
-		/// 性别
+		/// 
 		/// </summary>
 		public string sex
 		{
@@ -43,7 +42,7 @@ namespace stuManage.Model
 			get{return _sex;}
 		}
 		/// <summary>
-		/// 专业
+		/// 
 		/// </summary>
 		public string profession
 		{
@@ -51,7 +50,7 @@ namespace stuManage.Model
 			get{return _profession;}
 		}
 		/// <summary>
-		/// 入住时间
+		/// 
 		/// </summary>
 		public DateTime? check_time
 		{
@@ -59,7 +58,7 @@ namespace stuManage.Model
 			get{return _check_time;}
 		}
 		/// <summary>
-		/// 楼号
+		/// 
 		/// </summary>
 		public string flo_num
 		{
@@ -67,7 +66,7 @@ namespace stuManage.Model
 			get{return _flo_num;}
 		}
 		/// <summary>
-		/// 宿舍号
+		/// 
 		/// </summary>
 		public string dor_num
 		{

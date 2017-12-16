@@ -75,6 +75,24 @@
     <Compile Include="AddStu.Designer.cs">
       <DependentUpon>AddStu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DelStu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DelStu.Designer.cs">
+      <DependentUpon>DelStu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dorm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dorm.Designer.cs">
+      <DependentUpon>Dorm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditStu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditStu.Designer.cs">
+      <DependentUpon>EditStu.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFrom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +111,17 @@
     <EmbeddedResource Include="AddStu.resx">
       <DependentUpon>AddStu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DelStu.resx">
+      <DependentUpon>DelStu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Demglu.resx">
       <DependentUpon>Demglu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dorm.resx">
+      <DependentUpon>Dorm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditStu.resx">
+      <DependentUpon>EditStu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrom.resx">
       <DependentUpon>MainFrom.cs</DependentUpon>

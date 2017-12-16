@@ -19,6 +19,7 @@ namespace stuManage.Model
 {
 	/// <summary>
 	/// Employee:实体类(属性说明自动提取数据库字段的描述信息)
+    /// 员工表
 	/// </summary>
 	[Serializable]
 	public partial class Employee
@@ -35,7 +36,7 @@ namespace stuManage.Model
 		private string _position;
 		private string _con_infor;
 		/// <summary>
-		/// 
+		/// 员工号
 		/// </summary>
 		public string emp_num
 		{
@@ -43,7 +44,7 @@ namespace stuManage.Model
 			get{return _emp_num;}
 		}
 		/// <summary>
-		/// 
+		/// 姓名
 		/// </summary>
 		public string emp_name
 		{
@@ -51,7 +52,7 @@ namespace stuManage.Model
 			get{return _emp_name;}
 		}
 		/// <summary>
-		/// 
+		/// 密码
 		/// </summary>
 		public string emp_passwd
 		{
@@ -59,7 +60,7 @@ namespace stuManage.Model
 			get{return _emp_passwd;}
 		}
 		/// <summary>
-		/// 
+		/// 年龄
 		/// </summary>
 		public int? emp_age
 		{
@@ -67,7 +68,7 @@ namespace stuManage.Model
 			get{return _emp_age;}
 		}
 		/// <summary>
-		/// 
+		/// 楼号
 		/// </summary>
 		public string flo_num
 		{
@@ -75,7 +76,7 @@ namespace stuManage.Model
 			get{return _flo_num;}
 		}
 		/// <summary>
-		/// 
+		/// 性别
 		/// </summary>
 		public string emp_sex
 		{
@@ -83,7 +84,7 @@ namespace stuManage.Model
 			get{return _emp_sex;}
 		}
 		/// <summary>
-		/// 
+		/// 职位
 		/// </summary>
 		public string position
 		{
@@ -91,7 +92,7 @@ namespace stuManage.Model
 			get{return _position;}
 		}
 		/// <summary>
-		/// 
+		/// 信息
 		/// </summary>
 		public string con_infor
 		{

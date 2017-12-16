@@ -76,5 +76,13 @@ namespace stuManage.DALFactory
 			return (stuManage.IDAL.IUtilities)objType;
 		}
 
+        public static stuManage.IDAL.IAddStu CreateAddStu()
+        {
+
+            string ClassNamespace = AssemblyName + ".Utilities";
+            object objType = Assembly.Load(AssemblyName).CreateInstance(ClassNamespace);
+            return (stuManage.IDAL.IAddStu)objType;
+        }
+
 }
 }

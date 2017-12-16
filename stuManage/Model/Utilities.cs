@@ -3,6 +3,7 @@ namespace stuManage.Model
 {
 	/// <summary>
 	/// Utilities:实体类(属性说明自动提取数据库字段的描述信息)
+    /// 费用表
 	/// </summary>
 	[Serializable]
 	public partial class Utilities
@@ -18,7 +19,7 @@ namespace stuManage.Model
 		private decimal _water;
 		private decimal _wat_fee;
 		/// <summary>
-		/// 
+		/// 楼号
 		/// </summary>
 		public string flo_num
 		{
@@ -26,7 +27,7 @@ namespace stuManage.Model
 			get{return _flo_num;}
 		}
 		/// <summary>
-		/// 
+		/// 宿舍号
 		/// </summary>
 		public string dor_num
 		{
@@ -34,7 +35,7 @@ namespace stuManage.Model
 			get{return _dor_num;}
 		}
 		/// <summary>
-		/// 
+		/// 月份
 		/// </summary>
 		public string month_
 		{
@@ -42,7 +43,7 @@ namespace stuManage.Model
 			get{return _month_;}
 		}
 		/// <summary>
-		/// 
+		/// 电量
 		/// </summary>
 		public decimal electricity
 		{
@@ -50,7 +51,7 @@ namespace stuManage.Model
 			get{return _electricity;}
 		}
 		/// <summary>
-		/// 
+		/// 电费
 		/// </summary>
 		public decimal ele_fee
 		{
@@ -58,7 +59,7 @@ namespace stuManage.Model
 			get{return _ele_fee;}
 		}
 		/// <summary>
-		/// 
+		/// 水量
 		/// </summary>
 		public decimal water
 		{
@@ -66,7 +67,7 @@ namespace stuManage.Model
 			get{return _water;}
 		}
 		/// <summary>
-		/// 
+		/// 水费
 		/// </summary>
 		public decimal wat_fee
 		{

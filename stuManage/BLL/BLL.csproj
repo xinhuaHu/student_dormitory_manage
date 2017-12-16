@@ -46,6 +46,7 @@
     <Compile Include="Repair.cs" />
     <Compile Include="Stustay.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="AddStu.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DALFactory\DALFactory.csproj">
