@@ -44,6 +44,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{EDA0E64C-DF43-4513-AB65-429B484958AC}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IDAL\IDAL.csproj">
       <Project>{E4C7740A-8F46-4BFE-B6E7-1C90BB9267C9}</Project>
       <Name>IDAL</Name>
