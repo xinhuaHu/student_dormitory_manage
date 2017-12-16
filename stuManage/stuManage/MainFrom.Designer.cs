@@ -143,7 +143,7 @@
             this.ribbonPage4,
             this.homeRibbonPage});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl.Size = new System.Drawing.Size(1238, 164);
+            this.ribbonControl.Size = new System.Drawing.Size(1091, 164);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.Toolbar.ItemLinks.Add(this.iOpen);
             this.ribbonControl.Toolbar.ItemLinks.Add(this.Help);
@@ -425,10 +425,10 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 745);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 677);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1238, 33);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1091, 33);
             // 
             // MainFrom
             // 
@@ -437,7 +437,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1238, 778);
+            this.ClientSize = new System.Drawing.Size(1091, 710);
             this.Controls.Add(this.ribbonControl);
             this.Controls.Add(this.ribbonStatusBar);
             this.IsMdiContainer = true;

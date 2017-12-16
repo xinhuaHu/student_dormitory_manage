@@ -14,7 +14,7 @@ namespace stuManage.Model
 		private string _name;
 		private string _sex="男";
 		private string _profession;
-		private DateTime _check_time;
+		private DateTime? _check_time;
 		private string _flo_num;
 		private string _dor_num;
 		/// <summary>
@@ -52,7 +52,7 @@ namespace stuManage.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public DateTime check_time
+		public DateTime? check_time
 		{
 			set{ _check_time=value;}
 			get{return _check_time;}

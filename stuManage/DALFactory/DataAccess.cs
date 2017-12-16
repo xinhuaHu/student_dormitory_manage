@@ -6,7 +6,7 @@ namespace stuManage.DALFactory
 {
 	public sealed class DataAccess//<t>
 	{
-        private static readonly string AssemblyName = ConfigurationSettings.AppSettings["DalAssemblyName"];
+        static readonly string AssemblyName = ConfigurationSettings.AppSettings["DalAssemblyName"];
 		
 		/// <summary>
 		/// 创建数据层接口
