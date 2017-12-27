@@ -87,6 +87,12 @@
     <Compile Include="Dorm.Designer.cs">
       <DependentUpon>Dorm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DormEd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DormEd.Designer.cs">
+      <DependentUpon>DormEd.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditStu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dorm.resx">
       <DependentUpon>Dorm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dormEd.resx">
+      <DependentUpon>DormEd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditStu.resx">
       <DependentUpon>EditStu.cs</DependentUpon>

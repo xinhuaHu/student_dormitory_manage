@@ -15,9 +15,9 @@ namespace stuManage
         {
             InitializeComponent();
         }
-        private stuManage.BLL.AddStu bll = new stuManage.BLL.AddStu();
-        private DataTable baseDataTable;
 
+        private stuManage.BLL.Stustay bll = new stuManage.BLL.Stustay();
+        private DataTable baseDataTable;
         public bool isadd = true;
         public string Stu_num;
 
@@ -32,7 +32,7 @@ namespace stuManage
             else
             {
                 baseDataTable = bll.GetList("num='" + txtStuNum + "'").Tables[0];
-                baseDataTable.TableName = "book";
+                baseDataTable.TableName = "Stustay";
                 baseDataTable.PrimaryKey = new DataColumn[] { baseDataTable.Columns["num"] };
 
                 txtStuNum.Properties.ReadOnly = true;
@@ -57,10 +57,15 @@ namespace stuManage
             //lueType.Properties.ValueMember = "type";
         }
 
-        private void sBtn_Ok_Click(object sender, EventArgs e)
+        private void sBtn_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void sBtn_add_Click(object sender, EventArgs e)
         {
             //增加一条新记录
-            stuManage.Model.AddStu model = new stuManage.Model.AddStu();
+            stuManage.Model.Stustay model = new stuManage.Model.Stustay();
             model.num = txtStuNum.EditValue.ToString();
             model.name = txtStuname.EditValue.ToString();
             model.sex = txtStusex.EditValue.ToString();
@@ -79,11 +84,6 @@ namespace stuManage
             {
                 bll.Update(model);
             }
-        }
-
-        private void sBtn_Cancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

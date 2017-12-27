@@ -235,6 +235,7 @@
             this.sBtn_Ok.Size = new System.Drawing.Size(75, 32);
             this.sBtn_Ok.TabIndex = 42;
             this.sBtn_Ok.Text = "修   改";
+            this.sBtn_Ok.Click += new System.EventHandler(this.sBtn_Ok_Click);
             // 
             // EditStu
             // 
@@ -281,6 +282,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton sBtn_Cancel;
         private DevExpress.XtraEditors.SimpleButton sBtn_Ok;
+
+        private void sBtn_Ok_Click(object sender, System.EventArgs e)
+        {
+
+        }
 
     }
 }

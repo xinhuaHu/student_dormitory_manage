@@ -29,6 +29,7 @@ namespace stuManage
             //gridDataList.Add(new Person("Adrian", "Smith", "some comment"));
             //gridDataList.Add(new Person("Gabriella", "Smith", "some comment"));
         }
+
         /// <summary>
         /// 添加学生
         /// </summary>
@@ -93,6 +94,22 @@ namespace stuManage
             drom.MdiParent = this;
             drom.WindowState = FormWindowState.Maximized;
             drom.Show();
+        }
+        /// <summary>
+        /// 宿舍修改
+        /// </summary>
+        DormEd dormEd;
+        private void DormEd_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DormEd dormEd = new DormEd();
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                tempChild.Close();
+            }
+            dormEd.MdiParent = this;
+            dormEd.WindowState = FormWindowState.Maximized;
+            dormEd.Show();
         }
     }
 }
