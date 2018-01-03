@@ -4,7 +4,6 @@ using System.Text;
 using System.Data.SqlClient;
 using stuManage.IDAL;
 using stuManage.DBUtility;
-//using stuManage.DBUtility;//Please add references
 namespace stuManage.SQLServerDAL
 {
 	/// <summary>
@@ -14,7 +13,8 @@ namespace stuManage.SQLServerDAL
 	{
 		public Dormitory()
 		{}
-		#region  BasicMethod
+		#region  Method
+
 
 		/// <summary>
 		/// 是否存在该记录
@@ -23,16 +23,9 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from Dormitory");
-			strSql.Append(" where flo_num=@flo_num and dor_num=@dor_num ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@flo_num", SqlDbType.Char,10),
-					new SqlParameter("@dor_num", SqlDbType.Char,10)			};
-			parameters[0].Value = flo_num;
-			parameters[1].Value = dor_num;
-
-			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+			strSql.Append(" where flo_num='"+flo_num+"' and dor_num='"+dor_num+"' ");
+			return DbHelperSQL.Exists(strSql.ToString());
 		}
-
 
 		/// <summary>
 		/// 增加一条数据
@@ -40,21 +33,35 @@ namespace stuManage.SQLServerDAL
 		public bool Add(stuManage.Model.Dormitory model)
 		{
 			StringBuilder strSql=new StringBuilder();
+			StringBuilder strSql1=new StringBuilder();
+			StringBuilder strSql2=new StringBuilder();
+			if (model.flo_num != null)
+			{
+				strSql1.Append("flo_num,");
+				strSql2.Append("'"+model.flo_num+"',");
+			}
+			if (model.dor_num != null)
+			{
+				strSql1.Append("dor_num,");
+				strSql2.Append("'"+model.dor_num+"',");
+			}
+			if (model.num_occupants != null)
+			{
+				strSql1.Append("num_occupants,");
+				strSql2.Append(""+model.num_occupants+",");
+			}
+			if (model.live_num != null)
+			{
+				strSql1.Append("live_num,");
+				strSql2.Append(""+model.live_num+",");
+			}
 			strSql.Append("insert into Dormitory(");
-			strSql.Append("flo_num,dor_num,num_occupants,live_num)");
+			strSql.Append(strSql1.ToString().Remove(strSql1.Length - 1));
+			strSql.Append(")");
 			strSql.Append(" values (");
-			strSql.Append("@flo_num,@dor_num,@num_occupants,@live_num)");
-			SqlParameter[] parameters = {
-					new SqlParameter("@flo_num", SqlDbType.Char,10),
-					new SqlParameter("@dor_num", SqlDbType.Char,10),
-					new SqlParameter("@num_occupants", SqlDbType.Int,4),
-					new SqlParameter("@live_num", SqlDbType.Int,4)};
-			parameters[0].Value = model.flo_num;
-			parameters[1].Value = model.dor_num;
-			parameters[2].Value = model.num_occupants;
-			parameters[3].Value = model.live_num;
-
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			strSql.Append(strSql2.ToString().Remove(strSql2.Length - 1));
+			strSql.Append(")");
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
 				return true;
@@ -64,6 +71,7 @@ namespace stuManage.SQLServerDAL
 				return false;
 			}
 		}
+
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
@@ -71,21 +79,19 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update Dormitory set ");
-			strSql.Append("num_occupants=@num_occupants,");
-			strSql.Append("live_num=@live_num");
-			strSql.Append(" where flo_num=@flo_num and dor_num=@dor_num ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@num_occupants", SqlDbType.Int,4),
-					new SqlParameter("@live_num", SqlDbType.Int,4),
-					new SqlParameter("@flo_num", SqlDbType.Char,10),
-					new SqlParameter("@dor_num", SqlDbType.Char,10)};
-			parameters[0].Value = model.num_occupants;
-			parameters[1].Value = model.live_num;
-			parameters[2].Value = model.flo_num;
-			parameters[3].Value = model.dor_num;
-
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
+			if (model.num_occupants != null)
+			{
+				strSql.Append("num_occupants="+model.num_occupants+",");
+			}
+			if (model.live_num != null)
+			{
+				strSql.Append("live_num="+model.live_num+",");
+			}
+			int n = strSql.ToString().LastIndexOf(",");
+			strSql.Remove(n, 1);
+			strSql.Append(" where flo_num='"+ model.flo_num+"' and dor_num='"+ model.dor_num+"' ");
+			int rowsAffected=DbHelperSQL.ExecuteSql(strSql.ToString());
+			if (rowsAffected > 0)
 			{
 				return true;
 			}
@@ -100,18 +106,11 @@ namespace stuManage.SQLServerDAL
 		/// </summary>
 		public bool Delete(string flo_num,string dor_num)
 		{
-			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Dormitory ");
-			strSql.Append(" where flo_num=@flo_num and dor_num=@dor_num ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@flo_num", SqlDbType.Char,10),
-					new SqlParameter("@dor_num", SqlDbType.Char,10)			};
-			parameters[0].Value = flo_num;
-			parameters[1].Value = dor_num;
-
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
+			strSql.Append(" where flo_num='"+flo_num+"' and dor_num='"+dor_num+"' " );
+			int rowsAffected=DbHelperSQL.ExecuteSql(strSql.ToString());
+			if (rowsAffected > 0)
 			{
 				return true;
 			}
@@ -121,24 +120,18 @@ namespace stuManage.SQLServerDAL
 			}
 		}
 
-
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
 		public stuManage.Model.Dormitory GetModel(string flo_num,string dor_num)
 		{
-			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 flo_num,dor_num,num_occupants,live_num from Dormitory ");
-			strSql.Append(" where flo_num=@flo_num and dor_num=@dor_num ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@flo_num", SqlDbType.Char,10),
-					new SqlParameter("@dor_num", SqlDbType.Char,10)			};
-			parameters[0].Value = flo_num;
-			parameters[1].Value = dor_num;
-
+			strSql.Append("select  top 1  ");
+			strSql.Append(" flo_num,dor_num,num_occupants,live_num ");
+			strSql.Append(" from Dormitory ");
+			strSql.Append(" where flo_num='"+flo_num+"' and dor_num='"+dor_num+"' " );
 			stuManage.Model.Dormitory model=new stuManage.Model.Dormitory();
-			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
+			DataSet ds=DbHelperSQL.Query(strSql.ToString());
 			if(ds.Tables[0].Rows.Count>0)
 			{
 				return DataRowToModel(ds.Tables[0].Rows[0]);
@@ -148,7 +141,6 @@ namespace stuManage.SQLServerDAL
 				return null;
 			}
 		}
-
 
 		/// <summary>
 		/// 得到一个对象实体
@@ -262,34 +254,12 @@ namespace stuManage.SQLServerDAL
 		}
 
 		/*
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
-		{
-			SqlParameter[] parameters = {
-					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("@PageSize", SqlDbType.Int),
-					new SqlParameter("@PageIndex", SqlDbType.Int),
-					new SqlParameter("@IsReCount", SqlDbType.Bit),
-					new SqlParameter("@OrderType", SqlDbType.Bit),
-					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
-					};
-			parameters[0].Value = "Dormitory";
-			parameters[1].Value = "dor_num";
-			parameters[2].Value = PageSize;
-			parameters[3].Value = PageIndex;
-			parameters[4].Value = 0;
-			parameters[5].Value = 0;
-			parameters[6].Value = strWhere;	
-			return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
-		}*/
+		*/
 
-		#endregion  BasicMethod
-		#region  ExtensionMethod
+		#endregion  Method
+		#region  MethodEx
 
-		#endregion  ExtensionMethod
+		#endregion  MethodEx
 	}
 }
 

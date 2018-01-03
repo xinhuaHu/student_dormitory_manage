@@ -58,26 +58,29 @@
             this.Dorm = new DevExpress.XtraBars.BarButtonItem();
             this.ShuiDian = new DevExpress.XtraBars.BarButtonItem();
             this.Free = new DevExpress.XtraBars.BarButtonItem();
+            this.DormEd = new DevExpress.XtraBars.BarButtonItem();
+            this.Check = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.AddStup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.Checkp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.DelStup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.EditStp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Dormp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.DormEdp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.WeiXiup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ShuiDianp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.Freep = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.homeRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.skinsRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.DormEd = new DevExpress.XtraBars.BarButtonItem();
-            this.DormEdp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ShuiDianp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.Freep = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.WeiXiup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonMiniToolbar2 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.appMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
@@ -142,12 +145,14 @@
             this.ShuiDian,
             this.Free,
             this.DormEd,
-            this.barButtonItem2,
-            this.barButtonItem3});
+            this.Check,
+            this.barButtonItem3,
+            this.barButtonItem1});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 71;
+            this.ribbonControl.MaxItemId = 73;
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar1);
+            this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar2);
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageHeaderItemLinks.Add(this.About);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -376,6 +381,32 @@
             this.Free.Id = 67;
             this.Free.Name = "Free";
             // 
+            // DormEd
+            // 
+            this.DormEd.Caption = "宿舍修改";
+            this.DormEd.Id = 68;
+            this.DormEd.Name = "DormEd";
+            this.DormEd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.DormEd_ItemClick);
+            // 
+            // Check
+            // 
+            this.Check.Caption = "查看";
+            this.Check.Id = 69;
+            this.Check.Name = "Check";
+            this.Check.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.Check_ItemClick);
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "barButtonItem3";
+            this.barButtonItem3.Id = 70;
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 72;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -394,6 +425,7 @@
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.AddStup,
+            this.Checkp,
             this.DelStup,
             this.EditStp});
             this.ribbonPage1.Name = "ribbonPage1";
@@ -404,6 +436,12 @@
             this.AddStup.ItemLinks.Add(this.AddStu);
             this.AddStup.Name = "AddStup";
             this.AddStup.Text = "添加";
+            // 
+            // Checkp
+            // 
+            this.Checkp.ItemLinks.Add(this.Check);
+            this.Checkp.Name = "Checkp";
+            this.Checkp.Text = "查看";
             // 
             // DelStup
             // 
@@ -431,12 +469,23 @@
             this.Dormp.Name = "Dormp";
             this.Dormp.Text = "宿舍查询";
             // 
+            // DormEdp
+            // 
+            this.DormEdp.ItemLinks.Add(this.DormEd);
+            this.DormEdp.Name = "DormEdp";
+            this.DormEdp.Text = "宿舍修改";
+            // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.WeiXiup});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "维修管理";
+            // 
+            // WeiXiup
+            // 
+            this.WeiXiup.Name = "WeiXiup";
+            this.WeiXiup.Text = "维修";
             // 
             // ribbonPage4
             // 
@@ -445,6 +494,18 @@
             this.Freep});
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "费用管理";
+            // 
+            // ShuiDianp
+            // 
+            this.ShuiDianp.ItemLinks.Add(this.ShuiDian);
+            this.ShuiDianp.Name = "ShuiDianp";
+            this.ShuiDianp.Text = "水电查询";
+            // 
+            // Freep
+            // 
+            this.Freep.ItemLinks.Add(this.Free);
+            this.Freep.Name = "Freep";
+            this.Freep.Text = "费用查询";
             // 
             // homeRibbonPage
             // 
@@ -466,48 +527,6 @@
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1091, 33);
-            // 
-            // DormEd
-            // 
-            this.DormEd.Caption = "宿舍修改";
-            this.DormEd.Id = 68;
-            this.DormEd.Name = "DormEd";
-            this.DormEd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.DormEd_ItemClick);
-            // 
-            // DormEdp
-            // 
-            this.DormEdp.ItemLinks.Add(this.DormEd);
-            this.DormEdp.Name = "DormEdp";
-            this.DormEdp.Text = "宿舍修改";
-            // 
-            // ShuiDianp
-            // 
-            this.ShuiDianp.ItemLinks.Add(this.ShuiDian);
-            this.ShuiDianp.Name = "ShuiDianp";
-            this.ShuiDianp.Text = "水电查询";
-            // 
-            // Freep
-            // 
-            this.Freep.ItemLinks.Add(this.Free);
-            this.Freep.Name = "Freep";
-            this.Freep.Text = "费用查询";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "barButtonItem2";
-            this.barButtonItem2.Id = 69;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "barButtonItem3";
-            this.barButtonItem3.Id = 70;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // WeiXiup
-            // 
-            this.WeiXiup.Name = "WeiXiup";
-            this.WeiXiup.Text = "维修";
             // 
             // MainFrom
             // 
@@ -576,12 +595,15 @@
         private DevExpress.XtraBars.BarButtonItem Free;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup Dormp;
         private DevExpress.XtraBars.BarButtonItem DormEd;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem Check;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup DormEdp;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ShuiDianp;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup Freep;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup WeiXiup;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup Checkp;
+        private DevExpress.XtraBars.Ribbon.RibbonMiniToolbar ribbonMiniToolbar2;
 
     }
 }

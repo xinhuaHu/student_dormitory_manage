@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using stuManage.Model;
 using stuManage.DALFactory;
 using stuManage.IDAL;
 namespace stuManage.BLL
@@ -48,11 +49,11 @@ namespace stuManage.BLL
 			//该表无主键信息，请自定义主键/条件字段
 			return dal.GetModel();
 		}
-
+        /*
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>
-		/*public stuManage.Model.Utilities GetModelByCache()
+		public stuManage.Model.Utilities GetModelByCache()
 		{
 			//该表无主键信息，请自定义主键/条件字段
 			string CacheKey = "UtilitiesModel-" ;
@@ -71,8 +72,8 @@ namespace stuManage.BLL
 				catch{}
 			}
 			return (stuManage.Model.Utilities)objModel;
-		}*/
-
+		}
+        */
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

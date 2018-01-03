@@ -30,7 +30,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +64,7 @@
     <Reference Include="DevExpress.XtraNavBar.v12.1, Version=12.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -74,6 +76,12 @@
     </Compile>
     <Compile Include="AddStu.Designer.cs">
       <DependentUpon>AddStu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Check.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Check.Designer.cs">
+      <DependentUpon>Check.cs</DependentUpon>
     </Compile>
     <Compile Include="DelStu.cs">
       <SubType>Form</SubType>
@@ -116,6 +124,9 @@
     </Compile>
     <EmbeddedResource Include="AddStu.resx">
       <DependentUpon>AddStu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Check.resx">
+      <DependentUpon>Check.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DelStu.resx">
       <DependentUpon>DelStu.cs</DependentUpon>
@@ -184,6 +195,10 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{679808F5-F160-4079-96CF-0B241A9DDF1D}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{E4C7740A-8F46-4BFE-B6E7-1C90BB9267C9}</Project>
+      <Name>IDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{F67804FD-5D03-4739-946A-4C05A6B4ECF8}</Project>

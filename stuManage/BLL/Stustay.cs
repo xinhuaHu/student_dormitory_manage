@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using stuManage.Model;
 using stuManage.DALFactory;
 using stuManage.IDAL;
 namespace stuManage.BLL
@@ -45,11 +46,11 @@ namespace stuManage.BLL
 		{
 			
 			return dal.Delete(num);
-		}
+		}/*
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		/*public bool DeleteList(string numlist )
+		public bool DeleteList(string numlist )
 		{
 			return dal.DeleteList(Maticsoft.Common.PageValidate.SafeLongFilter(numlist,0) );
 		}*/
@@ -62,11 +63,11 @@ namespace stuManage.BLL
 			
 			return dal.GetModel(num);
 		}
-
+        /*
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>
-		/*public stuManage.Model.Stustay GetModelByCache(string num)
+		public stuManage.Model.Stustay GetModelByCache(string num)
 		{
 			
 			string CacheKey = "StustayModel-" + num;

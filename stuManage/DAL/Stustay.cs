@@ -13,7 +13,8 @@ namespace stuManage.SQLServerDAL
 	{
 		public Stustay()
 		{}
-		#region  BasicMethod
+		#region  Method
+
 
 		/// <summary>
 		/// 是否存在该记录
@@ -22,51 +23,47 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from Stustay");
-			strSql.Append(" where num=@num ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@num", SqlDbType.Char,10)			};
-			parameters[0].Value = num;
-
-			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+			strSql.Append(" where num='"+num+"' ");
+			return DbHelperSQL.Exists(strSql.ToString());
 		}
-
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
 		public bool Add(stuManage.Model.Stustay model)
 		{
-			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into Stustay(");
-			strSql.Append("num,name,sex,profession,check_time,flo_num,dor_num)");
-			strSql.Append(" values (");
-			strSql.Append("@num,@name,@sex,@profession,@check_time,@flo_num,@dor_num)");
-			SqlParameter[] parameters = {
-					new SqlParameter("@num", SqlDbType.Char,10),
-					new SqlParameter("@name", SqlDbType.VarChar,10),
-					new SqlParameter("@sex", SqlDbType.Char,2),
-					new SqlParameter("@profession", SqlDbType.VarChar,20),
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into Stustay(");
+            strSql.Append("num,name,sex,profession,check_time,flo_num,dor_num)");
+            strSql.Append(" values (");
+            strSql.Append("@num,@name,@sex,@profession,@check_time,@flo_num,@dor_num)");
+            SqlParameter[] parameters = {
+					new SqlParameter("@num", SqlDbType.NVarChar,50),
+					new SqlParameter("@name", SqlDbType.NVarChar,50),
+					new SqlParameter("@sex", SqlDbType.NVarChar,50),
+					new SqlParameter("@profession", SqlDbType.NVarChar,50),
 					new SqlParameter("@check_time", SqlDbType.DateTime),
-					new SqlParameter("@flo_num", SqlDbType.Char,10),
-					new SqlParameter("@dor_num", SqlDbType.Char,10)};
-			parameters[0].Value = model.num;
-			parameters[1].Value = model.name;
-			parameters[2].Value = model.sex;
-			parameters[3].Value = model.profession;
-			parameters[4].Value = model.check_time;
-			parameters[5].Value = model.flo_num;
-			parameters[6].Value = model.dor_num;
+					new SqlParameter("@flo_num", SqlDbType.NVarChar,50),
+					new SqlParameter("@dor_num", SqlDbType.NVarChar,50)};
+            parameters[0].Value = model.num;
+            parameters[1].Value = model.name;
+            parameters[2].Value = model.sex;
+            parameters[3].Value = model.profession;
+            parameters[4].Value = model.check_time;
+            parameters[5].Value = model.flo_num;
+            parameters[6].Value = model.dor_num;
 
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 		}
+
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
@@ -74,31 +71,39 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update Stustay set ");
-			strSql.Append("name=@name,");
-			strSql.Append("sex=@sex,");
-			strSql.Append("profession=@profession,");
-			strSql.Append("check_time=@check_time,");
-			strSql.Append("flo_num=@flo_num,");
-			strSql.Append("dor_num=@dor_num");
-			strSql.Append(" where num=@num ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@name", SqlDbType.VarChar,10),
-					new SqlParameter("@sex", SqlDbType.Char,2),
-					new SqlParameter("@profession", SqlDbType.VarChar,20),
-					new SqlParameter("@check_time", SqlDbType.DateTime),
-					new SqlParameter("@flo_num", SqlDbType.Char,10),
-					new SqlParameter("@dor_num", SqlDbType.Char,10),
-					new SqlParameter("@num", SqlDbType.Char,10)};
-			parameters[0].Value = model.name;
-			parameters[1].Value = model.sex;
-			parameters[2].Value = model.profession;
-			parameters[3].Value = model.check_time;
-			parameters[4].Value = model.flo_num;
-			parameters[5].Value = model.dor_num;
-			parameters[6].Value = model.num;
-
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
+			if (model.name != null)
+			{
+				strSql.Append("name='"+model.name+"',");
+			}
+			if (model.sex != null)
+			{
+				strSql.Append("sex='"+model.sex+"',");
+			}
+			else
+			{
+				strSql.Append("sex= null ,");
+			}
+			if (model.profession != null)
+			{
+				strSql.Append("profession='"+model.profession+"',");
+			}
+			if (model.check_time != null)
+			{
+				strSql.Append("check_time='"+model.check_time+"',");
+			}
+			if (model.flo_num != null)
+			{
+				strSql.Append("flo_num='"+model.flo_num+"',");
+			}
+			if (model.dor_num != null)
+			{
+				strSql.Append("dor_num='"+model.dor_num+"',");
+			}
+			int n = strSql.ToString().LastIndexOf(",");
+			strSql.Remove(n, 1);
+			strSql.Append(" where num='"+ model.num+"' ");
+			int rowsAffected=DbHelperSQL.ExecuteSql(strSql.ToString());
+			if (rowsAffected > 0)
 			{
 				return true;
 			}
@@ -113,16 +118,11 @@ namespace stuManage.SQLServerDAL
 		/// </summary>
 		public bool Delete(string num)
 		{
-			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Stustay ");
-			strSql.Append(" where num=@num ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@num", SqlDbType.Char,10)			};
-			parameters[0].Value = num;
-
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-			if (rows > 0)
+			strSql.Append(" where num='"+num+"' " );
+			int rowsAffected=DbHelperSQL.ExecuteSql(strSql.ToString());
+			if (rowsAffected > 0)
 			{
 				return true;
 			}
@@ -130,8 +130,7 @@ namespace stuManage.SQLServerDAL
 			{
 				return false;
 			}
-		}
-		/// <summary>
+		}		/// <summary>
 		/// 批量删除数据
 		/// </summary>
 		public bool DeleteList(string numlist )
@@ -156,16 +155,13 @@ namespace stuManage.SQLServerDAL
 		/// </summary>
 		public stuManage.Model.Stustay GetModel(string num)
 		{
-			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 num,name,sex,profession,check_time,flo_num,dor_num from Stustay ");
-			strSql.Append(" where num=@num ");
-			SqlParameter[] parameters = {
-					new SqlParameter("@num", SqlDbType.Char,10)			};
-			parameters[0].Value = num;
-
+			strSql.Append("select  top 1  ");
+			strSql.Append(" num,name,sex,profession,check_time,flo_num,dor_num ");
+			strSql.Append(" from Stustay ");
+			strSql.Append(" where num='"+num+"' " );
 			stuManage.Model.Stustay model=new stuManage.Model.Stustay();
-			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
+			DataSet ds=DbHelperSQL.Query(strSql.ToString());
 			if(ds.Tables[0].Rows.Count>0)
 			{
 				return DataRowToModel(ds.Tables[0].Rows[0]);
@@ -175,7 +171,6 @@ namespace stuManage.SQLServerDAL
 				return null;
 			}
 		}
-
 
 		/// <summary>
 		/// 得到一个对象实体
@@ -301,34 +296,12 @@ namespace stuManage.SQLServerDAL
 		}
 
 		/*
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
-		{
-			SqlParameter[] parameters = {
-					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
-					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
-					new SqlParameter("@PageSize", SqlDbType.Int),
-					new SqlParameter("@PageIndex", SqlDbType.Int),
-					new SqlParameter("@IsReCount", SqlDbType.Bit),
-					new SqlParameter("@OrderType", SqlDbType.Bit),
-					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
-					};
-			parameters[0].Value = "Stustay";
-			parameters[1].Value = "num";
-			parameters[2].Value = PageSize;
-			parameters[3].Value = PageIndex;
-			parameters[4].Value = 0;
-			parameters[5].Value = 0;
-			parameters[6].Value = strWhere;	
-			return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
-		}*/
+		*/
 
-		#endregion  BasicMethod
-		#region  ExtensionMethod
+		#endregion  Method
+		#region  MethodEx
 
-		#endregion  ExtensionMethod
+		#endregion  MethodEx
 	}
 }
 

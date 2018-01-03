@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
-using stuManage.IDAL;
+using stuManage.Model;
 using stuManage.DALFactory;
+using stuManage.IDAL;
 namespace stuManage.BLL
 {
 	/// <summary>
@@ -48,15 +49,13 @@ namespace stuManage.BLL
 			//该表无主键信息，请自定义主键/条件字段
 			return dal.GetModel();
 		}
-
+        /*
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>
-        public stuManage.Model.Repair GetModelByCache(string flo_num)
+		public stuManage.Model.Repair GetModelByCache()
 		{
-            return dal.GetModel();
-        }
-			/*//该表无主键信息，请自定义主键/条件字段
+			//该表无主键信息，请自定义主键/条件字段
 			string CacheKey = "RepairModel-" ;
 			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
 			if (objModel == null)

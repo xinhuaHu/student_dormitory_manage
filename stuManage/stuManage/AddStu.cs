@@ -45,16 +45,6 @@ namespace stuManage
             txtStuflo.DataBindings.Add("EditValue", baseDataTable, "flo_num");
             txtStudor.DataBindings.Add("EditValue", baseDataTable, "dor_num");
             DateStuTime.DataBindings.Add("EditValue", baseDataTable, "check_time");
-            //获取类型数据
-            //dtType = typebll.GetAllList().Tables[0];
-            //dtType.Columns["TID"].Caption = "编号";
-            //dtType.Columns["type"].Caption = "名称";
-            //dtType.Columns["tRemark"].Caption = "备注";
-
-            //this.bindingSource1.DataSource = dtType;
-            //lueType.Properties.DataSource = this.bindingSource1;
-            //lueType.Properties.DisplayMember = "type";
-            //lueType.Properties.ValueMember = "type";
         }
 
         private void sBtn_Cancel_Click(object sender, EventArgs e)
@@ -74,7 +64,6 @@ namespace stuManage
             model.dor_num = txtStudor.EditValue.ToString();
 
             model.check_time = DateStuTime.DateTime;
-
 
             if (isadd)
             {

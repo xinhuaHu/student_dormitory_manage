@@ -111,5 +111,19 @@ namespace stuManage
             dormEd.WindowState = FormWindowState.Maximized;
             dormEd.Show();
         }
+        
+        Check check;
+        private void Check_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            check = new Check();
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                tempChild.Close();
+            }
+            check.MdiParent = this;
+            check.WindowState = FormWindowState.Maximized;
+            check.Show();
+        }
     }
 }

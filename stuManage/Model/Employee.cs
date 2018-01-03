@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2017-12-08 15:10:26   N/A    初版
+* V0.01  2018-01-02 22:07:08   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -19,7 +19,6 @@ namespace stuManage.Model
 {
 	/// <summary>
 	/// Employee:实体类(属性说明自动提取数据库字段的描述信息)
-    /// 员工表
 	/// </summary>
 	[Serializable]
 	public partial class Employee
@@ -33,10 +32,9 @@ namespace stuManage.Model
 		private int? _emp_age;
 		private string _flo_num;
 		private string _emp_sex;
-		private string _position;
 		private string _con_infor;
 		/// <summary>
-		/// 员工号
+		/// 
 		/// </summary>
 		public string emp_num
 		{
@@ -44,7 +42,7 @@ namespace stuManage.Model
 			get{return _emp_num;}
 		}
 		/// <summary>
-		/// 姓名
+		/// 
 		/// </summary>
 		public string emp_name
 		{
@@ -52,7 +50,7 @@ namespace stuManage.Model
 			get{return _emp_name;}
 		}
 		/// <summary>
-		/// 密码
+		/// 
 		/// </summary>
 		public string emp_passwd
 		{
@@ -60,7 +58,7 @@ namespace stuManage.Model
 			get{return _emp_passwd;}
 		}
 		/// <summary>
-		/// 年龄
+		/// 
 		/// </summary>
 		public int? emp_age
 		{
@@ -68,7 +66,7 @@ namespace stuManage.Model
 			get{return _emp_age;}
 		}
 		/// <summary>
-		/// 楼号
+		/// 
 		/// </summary>
 		public string flo_num
 		{
@@ -76,7 +74,7 @@ namespace stuManage.Model
 			get{return _flo_num;}
 		}
 		/// <summary>
-		/// 性别
+		/// 
 		/// </summary>
 		public string emp_sex
 		{
@@ -84,15 +82,7 @@ namespace stuManage.Model
 			get{return _emp_sex;}
 		}
 		/// <summary>
-		/// 职位
-		/// </summary>
-		public string position
-		{
-			set{ _position=value;}
-			get{return _position;}
-		}
-		/// <summary>
-		/// 信息
+		/// 
 		/// </summary>
 		public string con_infor
 		{

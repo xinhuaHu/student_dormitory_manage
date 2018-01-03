@@ -622,7 +622,7 @@ namespace stuManage.DBUtility
                     }
                     catch (System.Data.SqlClient.SqlException e)
                     {
-                        throw e;
+                        throw e; 
                     }
                 }
             }

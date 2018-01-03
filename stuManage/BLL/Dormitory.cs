@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using stuManage.Model;
 using stuManage.DALFactory;
 using stuManage.IDAL;
 namespace stuManage.BLL
@@ -55,11 +56,11 @@ namespace stuManage.BLL
 			
 			return dal.GetModel(flo_num,dor_num);
 		}
-
+        /*
 		/// <summary>
 		/// 得到一个对象实体，从缓存中
 		/// </summary>
-		/*public stuManage.Model.Dormitory GetModelByCache(string flo_num,string dor_num)
+		public stuManage.Model.Dormitory GetModelByCache(string flo_num,string dor_num)
 		{
 			
 			string CacheKey = "DormitoryModel-" + flo_num+dor_num;
@@ -78,8 +79,8 @@ namespace stuManage.BLL
 				catch{}
 			}
 			return (stuManage.Model.Dormitory)objModel;
-		}*/
-
+		}
+        */
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

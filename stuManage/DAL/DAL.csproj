@@ -8,8 +8,8 @@
     <ProjectGuid>{679808F5-F160-4079-96CF-0B241A9DDF1D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAL</RootNamespace>
-    <AssemblyName>DAL</AssemblyName>
+    <RootNamespace>stuManage.SQLServerDAL</RootNamespace>
+    <AssemblyName>stuManage.SQLServerDAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,7 +46,6 @@
     <Compile Include="Repair.cs" />
     <Compile Include="Stustay.cs" />
     <Compile Include="Utilities.cs" />
-    <Compile Include="AddStu.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBUtility\DBUtility.csproj">

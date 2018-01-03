@@ -22,5 +22,27 @@ namespace stuManage.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=学生宿舍管理系统;Persist Security Info=True;User ID=sa;Pass" +
+            "word=666666")]
+        public string 学生宿舍管理系统ConnectionString {
+            get {
+                return ((string)(this["学生宿舍管理系统ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=StuManage;Persist Security Info=True;User ID=sa;Pas" +
+            "sword=666666")]
+        public string StuManageConnectionString {
+            get {
+                return ((string)(this["StuManageConnectionString"]));
+            }
+        }
     }
 }
