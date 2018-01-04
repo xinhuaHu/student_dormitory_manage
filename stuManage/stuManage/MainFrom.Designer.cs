@@ -58,7 +58,7 @@
             this.Dorm = new DevExpress.XtraBars.BarButtonItem();
             this.ShuiDian = new DevExpress.XtraBars.BarButtonItem();
             this.Free = new DevExpress.XtraBars.BarButtonItem();
-            this.DormEd = new DevExpress.XtraBars.BarButtonItem();
+            this.DormAdd = new DevExpress.XtraBars.BarButtonItem();
             this.Check = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
@@ -67,6 +67,7 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.Checkp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.EditStup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Dormp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.DormEdp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -141,11 +142,11 @@
             this.Dorm,
             this.ShuiDian,
             this.Free,
-            this.DormEd,
+            this.DormAdd,
             this.Check});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 76;
+            this.ribbonControl.MaxItemId = 78;
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar2);
             this.ribbonControl.Name = "ribbonControl";
@@ -355,7 +356,7 @@
             // EditStu
             // 
             this.EditStu.Caption = "修改学生";
-            this.EditStu.Id = 64;
+            this.EditStu.Id = 76;
             this.EditStu.Name = "EditStu";
             this.EditStu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.EditStu_ItemClick_1);
             // 
@@ -378,12 +379,12 @@
             this.Free.Id = 67;
             this.Free.Name = "Free";
             // 
-            // DormEd
+            // DormAdd
             // 
-            this.DormEd.Caption = "宿舍修改";
-            this.DormEd.Id = 68;
-            this.DormEd.Name = "DormEd";
-            this.DormEd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.DormEd_ItemClick);
+            this.DormAdd.Caption = "宿舍添加";
+            this.DormAdd.Id = 68;
+            this.DormAdd.Name = "DormAdd";
+            this.DormAdd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.DormAdd_ItemClick);
             // 
             // Check
             // 
@@ -415,7 +416,8 @@
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.Checkp});
+            this.Checkp,
+            this.EditStup});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "学生管理";
             // 
@@ -431,6 +433,12 @@
             this.Checkp.Name = "Checkp";
             this.Checkp.Text = "查看";
             // 
+            // EditStup
+            // 
+            this.EditStup.ItemLinks.Add(this.EditStu);
+            this.EditStup.Name = "EditStup";
+            this.EditStup.Text = "修改";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -443,13 +451,13 @@
             // 
             this.Dormp.ItemLinks.Add(this.Dorm);
             this.Dormp.Name = "Dormp";
-            this.Dormp.Text = "宿舍查询";
+            this.Dormp.Text = "查询";
             // 
             // DormEdp
             // 
-            this.DormEdp.ItemLinks.Add(this.DormEd);
+            this.DormEdp.ItemLinks.Add(this.DormAdd);
             this.DormEdp.Name = "DormEdp";
-            this.DormEdp.Text = "宿舍修改";
+            this.DormEdp.Text = "添加";
             // 
             // ribbonPage3
             // 
@@ -567,7 +575,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonMiniToolbar ribbonMiniToolbar1;
         private DevExpress.XtraBars.BarButtonItem Free;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup Dormp;
-        private DevExpress.XtraBars.BarButtonItem DormEd;
+        private DevExpress.XtraBars.BarButtonItem DormAdd;
         private DevExpress.XtraBars.BarButtonItem Check;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup DormEdp;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ShuiDianp;
@@ -577,6 +585,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonMiniToolbar ribbonMiniToolbar2;
         private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup EditStup;
 
     }
 }

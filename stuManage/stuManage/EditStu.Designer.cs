@@ -92,9 +92,10 @@
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.txtNum);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Location = new System.Drawing.Point(13, 13);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(837, 330);
+            this.groupControl1.Size = new System.Drawing.Size(862, 372);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "修   改";
             // 
@@ -136,7 +137,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DateStuTime.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.DateStuTime.Size = new System.Drawing.Size(100, 26);
+            this.DateStuTime.Size = new System.Drawing.Size(100, 24);
             this.DateStuTime.TabIndex = 41;
             // 
             // labelControl7
@@ -261,7 +262,6 @@
             this.sBtn_Ok.Size = new System.Drawing.Size(75, 32);
             this.sBtn_Ok.TabIndex = 42;
             this.sBtn_Ok.Text = "修   改";
-            this.sBtn_Ok.Click += new System.EventHandler(this.sBtn_Ok_Click);
             // 
             // EditStu
             // 
@@ -308,11 +308,5 @@
         public DevExpress.XtraEditors.ComboBoxEdit Stupro;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.SimpleButton sBtn_Ok;
-
-        private void sBtn_Ok_Click(object sender, System.EventArgs e)
-        {
-
-        }
-
     }
 }

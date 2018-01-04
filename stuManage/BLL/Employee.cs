@@ -46,15 +46,8 @@ namespace stuManage.BLL
 		{
 			
 			return dal.Delete(emp_num);
-		}/*
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public bool DeleteList(string emp_numlist )
-		{
-			return dal.DeleteList(Maticsoft.Common.PageValidate.SafeLongFilter(emp_numlist,0) );
-		}*/
-
+		}
+		
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
@@ -63,31 +56,7 @@ namespace stuManage.BLL
 			
 			return dal.GetModel(emp_num);
 		}
-        /*
-		/// <summary>
-		/// 得到一个对象实体，从缓存中
-		/// </summary>
-		public stuManage.Model.Employee GetModelByCache(string emp_num)
-		{
-			
-			string CacheKey = "EmployeeModel-" + emp_num;
-			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
-			if (objModel == null)
-			{
-				try
-				{
-					objModel = dal.GetModel(emp_num);
-					if (objModel != null)
-					{
-						int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
-						Maticsoft.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
-					}
-				}
-				catch{}
-			}
-			return (stuManage.Model.Employee)objModel;
-		}
-        */
+
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

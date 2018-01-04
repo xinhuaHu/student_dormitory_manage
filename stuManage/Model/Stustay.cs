@@ -10,7 +10,7 @@ namespace stuManage.Model
 		public Stustay()
 		{}
 		#region Model
-        private string _num;
+		private string _num;
 		private string _name;
 		private string _sex="男";
 		private string _profession;

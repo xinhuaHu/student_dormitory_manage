@@ -23,11 +23,6 @@ namespace stuManage
         BindingList<Person> gridDataList = new BindingList<Person>();
         void InitGrid()
         {
-            //gridDataList.Add(new Person("John", "Smith"));
-            //gridDataList.Add(new Person("Gabriel", "Smith"));
-            //gridDataList.Add(new Person("Ashley", "Smith", "some comment"));
-            //gridDataList.Add(new Person("Adrian", "Smith", "some comment"));
-            //gridDataList.Add(new Person("Gabriella", "Smith", "some comment"));
         }
 
         /// <summary>
@@ -62,22 +57,22 @@ namespace stuManage
             delStu.WindowState = FormWindowState.Maximized;
             delStu.Show();
         }
-        /// <summary>
-        /// 修改学生
-        /// </summary>
-        EditStu editStu;
-        private void EditStu_ItemClick_1(object sender, ItemClickEventArgs e)
-        {
-            editStu = new EditStu();
-            for (int x = 0; x < this.MdiChildren.Length; x++)
-            {
-                Form tempChild = (Form)this.MdiChildren[x];
-                tempChild.Close();
-            }
-            editStu.MdiParent = this;
-            editStu.WindowState = FormWindowState.Maximized;
-            editStu.Show();
-        }
+        ///// <summary>
+        ///// 修改学生
+        ///// </summary>
+        //EditStu editStu;
+        //private void EditStu_ItemClick(object sender, ItemClickEventArgs e)
+        //{
+        //    editStu = new EditStu();
+        //    for (int x = 0; x < this.MdiChildren.Length; x++)
+        //    {
+        //        Form tempChild = (Form)this.MdiChildren[x];
+        //        tempChild.Close();
+        //    }
+        //    editStu.MdiParent = this;
+        //    editStu.WindowState = FormWindowState.Maximized;
+        //    editStu.Show();
+        //}
 
         /// <summary>
         /// 宿舍查询
@@ -95,22 +90,6 @@ namespace stuManage
             drom.WindowState = FormWindowState.Maximized;
             drom.Show();
         }
-        /// <summary>
-        /// 宿舍修改
-        /// </summary>
-        DormEd dormEd;
-        private void DormEd_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            DormEd dormEd = new DormEd();
-            for (int x = 0; x < this.MdiChildren.Length; x++)
-            {
-                Form tempChild = (Form)this.MdiChildren[x];
-                tempChild.Close();
-            }
-            dormEd.MdiParent = this;
-            dormEd.WindowState = FormWindowState.Maximized;
-            dormEd.Show();
-        }
         
         Check check;
         private void Check_ItemClick(object sender, ItemClickEventArgs e)
@@ -124,6 +103,40 @@ namespace stuManage
             check.MdiParent = this;
             check.WindowState = FormWindowState.Maximized;
             check.Show();
+        }
+        /// <summary>
+        /// 修改学生
+        /// </summary>
+        EditStu editStu;
+        private void EditStu_ItemClick_1(object sender, ItemClickEventArgs e)
+        {
+            editStu = new EditStu();
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                tempChild.Close();
+            }
+            editStu.MdiParent = this;
+            editStu.WindowState = FormWindowState.Maximized;
+            editStu.Show();
+        }
+        /// <summary>
+        /// 宿舍添加
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        AddDorm addDorm;
+        private void DormAdd_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            addDorm = new AddDorm();
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                tempChild.Close();
+            }
+            addDorm.MdiParent = this;
+            addDorm.WindowState = FormWindowState.Maximized;
+            addDorm.Show();
         }
     }
 }

@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDorm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDorm.Designer.cs">
+      <DependentUpon>AddDorm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddStu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,12 @@
     <Compile Include="DormEd.Designer.cs">
       <DependentUpon>DormEd.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditDorm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDorm.Designer.cs">
+      <DependentUpon>EditDorm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditStu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +134,9 @@
     <Compile Include="Demglu.Designer.cs">
       <DependentUpon>Demglu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddDorm.resx">
+      <DependentUpon>AddDorm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddStu.resx">
       <DependentUpon>AddStu.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dormEd.resx">
       <DependentUpon>DormEd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDorm.resx">
+      <DependentUpon>EditDorm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditStu.resx">
       <DependentUpon>EditStu.cs</DependentUpon>

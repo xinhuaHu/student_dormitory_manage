@@ -49,30 +49,6 @@ namespace stuManage.BLL
 			//该表无主键信息，请自定义主键/条件字段
 			return dal.GetModel();
 		}
-        /*
-		/// <summary>
-		/// 得到一个对象实体，从缓存中
-		/// </summary>
-		public stuManage.Model.Repair GetModelByCache()
-		{
-			//该表无主键信息，请自定义主键/条件字段
-			string CacheKey = "RepairModel-" ;
-			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
-			if (objModel == null)
-			{
-				try
-				{
-					objModel = dal.GetModel();
-					if (objModel != null)
-					{
-						int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
-						Maticsoft.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
-					}
-				}
-				catch{}
-			}
-			return (stuManage.Model.Repair)objModel;
-		}*/
 
 		/// <summary>
 		/// 获得数据列表

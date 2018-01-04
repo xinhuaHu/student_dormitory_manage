@@ -13,7 +13,7 @@ namespace stuManage.SQLServerDAL
 	{
 		public Repair()
 		{}
-		#region  Method
+		#region  BasicMethod
 
 
 
@@ -23,50 +23,27 @@ namespace stuManage.SQLServerDAL
 		public bool Add(stuManage.Model.Repair model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			StringBuilder strSql1=new StringBuilder();
-			StringBuilder strSql2=new StringBuilder();
-			if (model.flo_num != null)
-			{
-				strSql1.Append("flo_num,");
-				strSql2.Append("'"+model.flo_num+"',");
-			}
-			if (model.dor_num != null)
-			{
-				strSql1.Append("dor_num,");
-				strSql2.Append("'"+model.dor_num+"',");
-			}
-			if (model.art_num != null)
-			{
-				strSql1.Append("art_num,");
-				strSql2.Append("'"+model.art_num+"',");
-			}
-			if (model.repa_rea != null)
-			{
-				strSql1.Append("repa_rea,");
-				strSql2.Append("'"+model.repa_rea+"',");
-			}
-			if (model.sub_date != null)
-			{
-				strSql1.Append("sub_date,");
-				strSql2.Append("'"+model.sub_date+"',");
-			}
-			if (model.sol_date != null)
-			{
-				strSql1.Append("sol_date,");
-				strSql2.Append("'"+model.sol_date+"',");
-			}
-			if (model.repa_fee != null)
-			{
-				strSql1.Append("repa_fee,");
-				strSql2.Append(""+model.repa_fee+",");
-			}
 			strSql.Append("insert into Repair(");
-			strSql.Append(strSql1.ToString().Remove(strSql1.Length - 1));
-			strSql.Append(")");
+			strSql.Append("flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee)");
 			strSql.Append(" values (");
-			strSql.Append(strSql2.ToString().Remove(strSql2.Length - 1));
-			strSql.Append(")");
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
+			strSql.Append("@flo_num,@dor_num,@art_num,@repa_rea,@sub_date,@sol_date,@repa_fee)");
+			SqlParameter[] parameters = {
+					new SqlParameter("@flo_num", SqlDbType.Char,10),
+					new SqlParameter("@dor_num", SqlDbType.Char,10),
+					new SqlParameter("@art_num", SqlDbType.Char,8),
+					new SqlParameter("@repa_rea", SqlDbType.Char,50),
+					new SqlParameter("@sub_date", SqlDbType.DateTime),
+					new SqlParameter("@sol_date", SqlDbType.DateTime),
+					new SqlParameter("@repa_fee", SqlDbType.Decimal,5)};
+			parameters[0].Value = model.flo_num;
+			parameters[1].Value = model.dor_num;
+			parameters[2].Value = model.art_num;
+			parameters[3].Value = model.repa_rea;
+			parameters[4].Value = model.sub_date;
+			parameters[5].Value = model.sol_date;
+			parameters[6].Value = model.repa_fee;
+
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
 			{
 				return true;
@@ -76,7 +53,6 @@ namespace stuManage.SQLServerDAL
 				return false;
 			}
 		}
-
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
@@ -84,39 +60,32 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update Repair set ");
-			if (model.flo_num != null)
-			{
-				strSql.Append("flo_num='"+model.flo_num+"',");
-			}
-			if (model.dor_num != null)
-			{
-				strSql.Append("dor_num='"+model.dor_num+"',");
-			}
-			if (model.art_num != null)
-			{
-				strSql.Append("art_num='"+model.art_num+"',");
-			}
-			if (model.repa_rea != null)
-			{
-				strSql.Append("repa_rea='"+model.repa_rea+"',");
-			}
-			if (model.sub_date != null)
-			{
-				strSql.Append("sub_date='"+model.sub_date+"',");
-			}
-			if (model.sol_date != null)
-			{
-				strSql.Append("sol_date='"+model.sol_date+"',");
-			}
-			if (model.repa_fee != null)
-			{
-				strSql.Append("repa_fee="+model.repa_fee+",");
-			}
-			int n = strSql.ToString().LastIndexOf(",");
-			strSql.Remove(n, 1);
+			strSql.Append("flo_num=@flo_num,");
+			strSql.Append("dor_num=@dor_num,");
+			strSql.Append("art_num=@art_num,");
+			strSql.Append("repa_rea=@repa_rea,");
+			strSql.Append("sub_date=@sub_date,");
+			strSql.Append("sol_date=@sol_date,");
+			strSql.Append("repa_fee=@repa_fee");
 			strSql.Append(" where ");
-			int rowsAffected=DbHelperSQL.ExecuteSql(strSql.ToString());
-			if (rowsAffected > 0)
+			SqlParameter[] parameters = {
+					new SqlParameter("@flo_num", SqlDbType.Char,10),
+					new SqlParameter("@dor_num", SqlDbType.Char,10),
+					new SqlParameter("@art_num", SqlDbType.Char,8),
+					new SqlParameter("@repa_rea", SqlDbType.Char,50),
+					new SqlParameter("@sub_date", SqlDbType.DateTime),
+					new SqlParameter("@sol_date", SqlDbType.DateTime),
+					new SqlParameter("@repa_fee", SqlDbType.Decimal,5)};
+			parameters[0].Value = model.flo_num;
+			parameters[1].Value = model.dor_num;
+			parameters[2].Value = model.art_num;
+			parameters[3].Value = model.repa_rea;
+			parameters[4].Value = model.sub_date;
+			parameters[5].Value = model.sol_date;
+			parameters[6].Value = model.repa_fee;
+
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
 			{
 				return true;
 			}
@@ -131,11 +100,15 @@ namespace stuManage.SQLServerDAL
 		/// </summary>
 		public bool Delete()
 		{
+			//该表无主键信息，请自定义主键/条件字段
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Repair ");
-			strSql.Append(" where " );
-			int rowsAffected=DbHelperSQL.ExecuteSql(strSql.ToString());
-			if (rowsAffected > 0)
+			strSql.Append(" where ");
+			SqlParameter[] parameters = {
+			};
+
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
 			{
 				return true;
 			}
@@ -145,18 +118,21 @@ namespace stuManage.SQLServerDAL
 			}
 		}
 
+
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
 		public stuManage.Model.Repair GetModel()
 		{
+			//该表无主键信息，请自定义主键/条件字段
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1  ");
-			strSql.Append(" flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee ");
-			strSql.Append(" from Repair ");
-			strSql.Append(" where " );
+			strSql.Append("select  top 1 flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee from Repair ");
+			strSql.Append(" where ");
+			SqlParameter[] parameters = {
+			};
+
 			stuManage.Model.Repair model=new stuManage.Model.Repair();
-			DataSet ds=DbHelperSQL.Query(strSql.ToString());
+			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
 				return DataRowToModel(ds.Tables[0].Rows[0]);
@@ -166,6 +142,7 @@ namespace stuManage.SQLServerDAL
 				return null;
 			}
 		}
+
 
 		/// <summary>
 		/// 得到一个对象实体
@@ -291,12 +268,34 @@ namespace stuManage.SQLServerDAL
 		}
 
 		/*
-		*/
+		/// <summary>
+		/// 分页获取数据列表
+		/// </summary>
+		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		{
+			SqlParameter[] parameters = {
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
+					};
+			parameters[0].Value = "Repair";
+			parameters[1].Value = "emp_num";
+			parameters[2].Value = PageSize;
+			parameters[3].Value = PageIndex;
+			parameters[4].Value = 0;
+			parameters[5].Value = 0;
+			parameters[6].Value = strWhere;	
+			return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
+		}*/
 
-		#endregion  Method
-		#region  MethodEx
+		#endregion  BasicMethod
+		#region  ExtensionMethod
 
-		#endregion  MethodEx
+		#endregion  ExtensionMethod
 	}
 }
 

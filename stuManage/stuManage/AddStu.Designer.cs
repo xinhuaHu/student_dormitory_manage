@@ -31,6 +31,7 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.Stusex = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Stupro = new DevExpress.XtraEditors.ComboBoxEdit();
             this.DateStuTime = new DevExpress.XtraEditors.DateEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -44,16 +45,16 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtStuNum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.sBtn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.sBtn_add = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
-            this.Stusex = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
             this.splitContainerControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Stusex.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Stupro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateStuTime.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateStuTime.Properties)).BeginInit();
@@ -61,7 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStuflo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStuname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStuNum.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Stusex.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -110,15 +110,28 @@
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.txtStuNum);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Location = new System.Drawing.Point(23, 45);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(812, 330);
+            this.groupControl1.Size = new System.Drawing.Size(860, 421);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "添 加 学 生";
             // 
+            // Stusex
+            // 
+            this.Stusex.Location = new System.Drawing.Point(643, 111);
+            this.Stusex.Name = "Stusex";
+            this.Stusex.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.Stusex.Properties.Items.AddRange(new object[] {
+            "男",
+            "女"});
+            this.Stusex.Size = new System.Drawing.Size(100, 24);
+            this.Stusex.TabIndex = 43;
+            // 
             // Stupro
             // 
-            this.Stupro.Location = new System.Drawing.Point(200, 172);
+            this.Stupro.Location = new System.Drawing.Point(190, 200);
             this.Stupro.Name = "Stupro";
             this.Stupro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -137,7 +150,7 @@
             // DateStuTime
             // 
             this.DateStuTime.EditValue = null;
-            this.DateStuTime.Location = new System.Drawing.Point(200, 261);
+            this.DateStuTime.Location = new System.Drawing.Point(190, 289);
             this.DateStuTime.Name = "DateStuTime";
             this.DateStuTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -149,7 +162,7 @@
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(126, 261);
+            this.labelControl7.Location = new System.Drawing.Point(116, 289);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(60, 20);
             this.labelControl7.TabIndex = 40;
@@ -157,7 +170,7 @@
             // 
             // txtStudor
             // 
-            this.txtStudor.Location = new System.Drawing.Point(653, 170);
+            this.txtStudor.Location = new System.Drawing.Point(643, 198);
             this.txtStudor.Name = "txtStudor";
             this.txtStudor.Size = new System.Drawing.Size(100, 24);
             this.txtStudor.TabIndex = 39;
@@ -165,7 +178,7 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(579, 172);
+            this.labelControl4.Location = new System.Drawing.Point(569, 200);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(45, 20);
             this.labelControl4.TabIndex = 38;
@@ -173,7 +186,7 @@
             // 
             // txtStuflo
             // 
-            this.txtStuflo.Location = new System.Drawing.Point(417, 170);
+            this.txtStuflo.Location = new System.Drawing.Point(407, 198);
             this.txtStuflo.Name = "txtStuflo";
             this.txtStuflo.Size = new System.Drawing.Size(100, 24);
             this.txtStuflo.TabIndex = 37;
@@ -181,7 +194,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(343, 172);
+            this.labelControl5.Location = new System.Drawing.Point(333, 200);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(30, 20);
             this.labelControl5.TabIndex = 36;
@@ -190,7 +203,7 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(126, 172);
+            this.labelControl6.Location = new System.Drawing.Point(116, 200);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(30, 20);
             this.labelControl6.TabIndex = 34;
@@ -199,7 +212,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(579, 85);
+            this.labelControl3.Location = new System.Drawing.Point(569, 113);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(30, 20);
             this.labelControl3.TabIndex = 32;
@@ -207,7 +220,7 @@
             // 
             // txtStuname
             // 
-            this.txtStuname.Location = new System.Drawing.Point(417, 83);
+            this.txtStuname.Location = new System.Drawing.Point(407, 111);
             this.txtStuname.Name = "txtStuname";
             this.txtStuname.Size = new System.Drawing.Size(100, 24);
             this.txtStuname.TabIndex = 31;
@@ -215,7 +228,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(343, 85);
+            this.labelControl2.Location = new System.Drawing.Point(333, 113);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(30, 20);
             this.labelControl2.TabIndex = 30;
@@ -223,7 +236,7 @@
             // 
             // txtStuNum
             // 
-            this.txtStuNum.Location = new System.Drawing.Point(200, 83);
+            this.txtStuNum.Location = new System.Drawing.Point(190, 111);
             this.txtStuNum.Name = "txtStuNum";
             this.txtStuNum.Size = new System.Drawing.Size(100, 24);
             this.txtStuNum.TabIndex = 29;
@@ -231,17 +244,28 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(126, 85);
+            this.labelControl1.Location = new System.Drawing.Point(116, 113);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(30, 20);
             this.labelControl1.TabIndex = 28;
             this.labelControl1.Text = "学号";
             // 
+            // btnClear
+            // 
+            this.btnClear.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Appearance.Options.UseFont = true;
+            this.btnClear.Location = new System.Drawing.Point(388, 33);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 32);
+            this.btnClear.TabIndex = 46;
+            this.btnClear.Text = "清    空";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // sBtn_Cancel
             // 
             this.sBtn_Cancel.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sBtn_Cancel.Appearance.Options.UseFont = true;
-            this.sBtn_Cancel.Location = new System.Drawing.Point(517, 33);
+            this.sBtn_Cancel.Location = new System.Drawing.Point(538, 33);
             this.sBtn_Cancel.Name = "sBtn_Cancel";
             this.sBtn_Cancel.Size = new System.Drawing.Size(75, 32);
             this.sBtn_Cancel.TabIndex = 45;
@@ -252,35 +276,12 @@
             // 
             this.sBtn_add.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sBtn_add.Appearance.Options.UseFont = true;
-            this.sBtn_add.Location = new System.Drawing.Point(214, 33);
+            this.sBtn_add.Location = new System.Drawing.Point(235, 33);
             this.sBtn_add.Name = "sBtn_add";
             this.sBtn_add.Size = new System.Drawing.Size(75, 32);
             this.sBtn_add.TabIndex = 44;
             this.sBtn_add.Text = "添    加";
             this.sBtn_add.Click += new System.EventHandler(this.sBtn_add_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Appearance.Options.UseFont = true;
-            this.btnClear.Location = new System.Drawing.Point(375, 33);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 32);
-            this.btnClear.TabIndex = 46;
-            this.btnClear.Text = "清    空";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // Stusex
-            // 
-            this.Stusex.Location = new System.Drawing.Point(653, 83);
-            this.Stusex.Name = "Stusex";
-            this.Stusex.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.Stusex.Properties.Items.AddRange(new object[] {
-            "男",
-            "女"});
-            this.Stusex.Size = new System.Drawing.Size(100, 24);
-            this.Stusex.TabIndex = 43;
             // 
             // AddStu
             // 
@@ -298,6 +299,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Stusex.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Stupro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateStuTime.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateStuTime.Properties)).EndInit();
@@ -305,7 +307,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStuflo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStuname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStuNum.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Stusex.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -6,7 +6,7 @@
 *
 * Ver    变更日期             负责人  变更内容
 * ───────────────────────────────────
-* V0.01  2018-01-02 22:07:07   N/A    初版
+* V0.01  2018-01-04 22:30:49   N/A    初版
 *
 * Copyright (c) 2012 Maticsoft Corporation. All rights reserved.
 *┌──────────────────────────────────┐
@@ -25,10 +25,6 @@ namespace stuManage.IDAL
 	{
 		#region  成员方法
 		/// <summary>
-		/// 是否存在该记录
-		/// </summary>
-		bool Exists(string flo_num,string dor_num);
-		/// <summary>
 		/// 增加一条数据
 		/// </summary>
 		bool Add(stuManage.Model.Dormitory model);
@@ -39,11 +35,11 @@ namespace stuManage.IDAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		bool Delete(string flo_num,string dor_num);
+		bool Delete();
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		stuManage.Model.Dormitory GetModel(string flo_num,string dor_num);
+		stuManage.Model.Dormitory GetModel();
 		stuManage.Model.Dormitory DataRowToModel(DataRow row);
 		/// <summary>
 		/// 获得数据列表

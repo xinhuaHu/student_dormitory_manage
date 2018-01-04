@@ -15,13 +15,6 @@ namespace stuManage.BLL
 		public Dormitory()
 		{}
 		#region  BasicMethod
-		/// <summary>
-		/// 是否存在该记录
-		/// </summary>
-		public bool Exists(string flo_num,string dor_num)
-		{
-			return dal.Exists(flo_num,dor_num);
-		}
 
 		/// <summary>
 		/// 增加一条数据
@@ -42,45 +35,21 @@ namespace stuManage.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(string flo_num,string dor_num)
+		public bool Delete()
 		{
-			
-			return dal.Delete(flo_num,dor_num);
+			//该表无主键信息，请自定义主键/条件字段
+			return dal.Delete();
 		}
 
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public stuManage.Model.Dormitory GetModel(string flo_num,string dor_num)
+		public stuManage.Model.Dormitory GetModel()
 		{
-			
-			return dal.GetModel(flo_num,dor_num);
+			//该表无主键信息，请自定义主键/条件字段
+			return dal.GetModel();
 		}
-        /*
-		/// <summary>
-		/// 得到一个对象实体，从缓存中
-		/// </summary>
-		public stuManage.Model.Dormitory GetModelByCache(string flo_num,string dor_num)
-		{
-			
-			string CacheKey = "DormitoryModel-" + flo_num+dor_num;
-			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
-			if (objModel == null)
-			{
-				try
-				{
-					objModel = dal.GetModel(flo_num,dor_num);
-					if (objModel != null)
-					{
-						int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
-						Maticsoft.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
-					}
-				}
-				catch{}
-			}
-			return (stuManage.Model.Dormitory)objModel;
-		}
-        */
+
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

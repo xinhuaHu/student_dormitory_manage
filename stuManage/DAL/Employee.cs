@@ -13,8 +13,7 @@ namespace stuManage.SQLServerDAL
 	{
 		public Employee()
 		{}
-		#region  Method
-
+		#region  BasicMethod
 
 		/// <summary>
 		/// 是否存在该记录
@@ -23,9 +22,14 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select count(1) from Employee");
-			strSql.Append(" where emp_num='"+emp_num+"' ");
-			return DbHelperSQL.Exists(strSql.ToString());
+			strSql.Append(" where emp_num=@emp_num ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@emp_num", SqlDbType.Char,10)			};
+			parameters[0].Value = emp_num;
+
+			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
+
 
 		/// <summary>
 		/// 增加一条数据
@@ -33,50 +37,27 @@ namespace stuManage.SQLServerDAL
 		public bool Add(stuManage.Model.Employee model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			StringBuilder strSql1=new StringBuilder();
-			StringBuilder strSql2=new StringBuilder();
-			if (model.emp_num != null)
-			{
-				strSql1.Append("emp_num,");
-				strSql2.Append("'"+model.emp_num+"',");
-			}
-			if (model.emp_name != null)
-			{
-				strSql1.Append("emp_name,");
-				strSql2.Append("'"+model.emp_name+"',");
-			}
-			if (model.emp_passwd != null)
-			{
-				strSql1.Append("emp_passwd,");
-				strSql2.Append("'"+model.emp_passwd+"',");
-			}
-			if (model.emp_age != null)
-			{
-				strSql1.Append("emp_age,");
-				strSql2.Append(""+model.emp_age+",");
-			}
-			if (model.flo_num != null)
-			{
-				strSql1.Append("flo_num,");
-				strSql2.Append("'"+model.flo_num+"',");
-			}
-			if (model.emp_sex != null)
-			{
-				strSql1.Append("emp_sex,");
-				strSql2.Append("'"+model.emp_sex+"',");
-			}
-			if (model.con_infor != null)
-			{
-				strSql1.Append("con_infor,");
-				strSql2.Append("'"+model.con_infor+"',");
-			}
 			strSql.Append("insert into Employee(");
-			strSql.Append(strSql1.ToString().Remove(strSql1.Length - 1));
-			strSql.Append(")");
+			strSql.Append("emp_num,emp_name,emp_passwd,emp_age,flo_num,emp_sex,con_infor)");
 			strSql.Append(" values (");
-			strSql.Append(strSql2.ToString().Remove(strSql2.Length - 1));
-			strSql.Append(")");
-			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
+			strSql.Append("@emp_num,@emp_name,@emp_passwd,@emp_age,@flo_num,@emp_sex,@con_infor)");
+			SqlParameter[] parameters = {
+					new SqlParameter("@emp_num", SqlDbType.Char,10),
+					new SqlParameter("@emp_name", SqlDbType.VarChar,10),
+					new SqlParameter("@emp_passwd", SqlDbType.VarChar,20),
+					new SqlParameter("@emp_age", SqlDbType.Char,10),
+					new SqlParameter("@flo_num", SqlDbType.Char,10),
+					new SqlParameter("@emp_sex", SqlDbType.Char,2),
+					new SqlParameter("@con_infor", SqlDbType.Char,11)};
+			parameters[0].Value = model.emp_num;
+			parameters[1].Value = model.emp_name;
+			parameters[2].Value = model.emp_passwd;
+			parameters[3].Value = model.emp_age;
+			parameters[4].Value = model.flo_num;
+			parameters[5].Value = model.emp_sex;
+			parameters[6].Value = model.con_infor;
+
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
 			{
 				return true;
@@ -86,7 +67,6 @@ namespace stuManage.SQLServerDAL
 				return false;
 			}
 		}
-
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
@@ -94,51 +74,31 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update Employee set ");
-			if (model.emp_name != null)
-			{
-				strSql.Append("emp_name='"+model.emp_name+"',");
-			}
-			if (model.emp_passwd != null)
-			{
-				strSql.Append("emp_passwd='"+model.emp_passwd+"',");
-			}
-			if (model.emp_age != null)
-			{
-				strSql.Append("emp_age="+model.emp_age+",");
-			}
-			else
-			{
-				strSql.Append("emp_age= null ,");
-			}
-			if (model.flo_num != null)
-			{
-				strSql.Append("flo_num='"+model.flo_num+"',");
-			}
-			else
-			{
-				strSql.Append("flo_num= null ,");
-			}
-			if (model.emp_sex != null)
-			{
-				strSql.Append("emp_sex='"+model.emp_sex+"',");
-			}
-			else
-			{
-				strSql.Append("emp_sex= null ,");
-			}
-			if (model.con_infor != null)
-			{
-				strSql.Append("con_infor='"+model.con_infor+"',");
-			}
-			else
-			{
-				strSql.Append("con_infor= null ,");
-			}
-			int n = strSql.ToString().LastIndexOf(",");
-			strSql.Remove(n, 1);
-			strSql.Append(" where emp_num='"+ model.emp_num+"' ");
-			int rowsAffected=DbHelperSQL.ExecuteSql(strSql.ToString());
-			if (rowsAffected > 0)
+			strSql.Append("emp_name=@emp_name,");
+			strSql.Append("emp_passwd=@emp_passwd,");
+			strSql.Append("emp_age=@emp_age,");
+			strSql.Append("flo_num=@flo_num,");
+			strSql.Append("emp_sex=@emp_sex,");
+			strSql.Append("con_infor=@con_infor");
+			strSql.Append(" where emp_num=@emp_num ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@emp_name", SqlDbType.VarChar,10),
+					new SqlParameter("@emp_passwd", SqlDbType.VarChar,20),
+					new SqlParameter("@emp_age", SqlDbType.Char,10),
+					new SqlParameter("@flo_num", SqlDbType.Char,10),
+					new SqlParameter("@emp_sex", SqlDbType.Char,2),
+					new SqlParameter("@con_infor", SqlDbType.Char,11),
+					new SqlParameter("@emp_num", SqlDbType.Char,10)};
+			parameters[0].Value = model.emp_name;
+			parameters[1].Value = model.emp_passwd;
+			parameters[2].Value = model.emp_age;
+			parameters[3].Value = model.flo_num;
+			parameters[4].Value = model.emp_sex;
+			parameters[5].Value = model.con_infor;
+			parameters[6].Value = model.emp_num;
+
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
 			{
 				return true;
 			}
@@ -153,11 +113,16 @@ namespace stuManage.SQLServerDAL
 		/// </summary>
 		public bool Delete(string emp_num)
 		{
+			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Employee ");
-			strSql.Append(" where emp_num='"+emp_num+"' " );
-			int rowsAffected=DbHelperSQL.ExecuteSql(strSql.ToString());
-			if (rowsAffected > 0)
+			strSql.Append(" where emp_num=@emp_num ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@emp_num", SqlDbType.Char,10)			};
+			parameters[0].Value = emp_num;
+
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
 			{
 				return true;
 			}
@@ -165,7 +130,8 @@ namespace stuManage.SQLServerDAL
 			{
 				return false;
 			}
-		}		/// <summary>
+		}
+		/// <summary>
 		/// 批量删除数据
 		/// </summary>
 		public bool DeleteList(string emp_numlist )
@@ -190,13 +156,16 @@ namespace stuManage.SQLServerDAL
 		/// </summary>
 		public stuManage.Model.Employee GetModel(string emp_num)
 		{
+			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1  ");
-			strSql.Append(" emp_num,emp_name,emp_passwd,emp_age,flo_num,emp_sex,con_infor ");
-			strSql.Append(" from Employee ");
-			strSql.Append(" where emp_num='"+emp_num+"' " );
+			strSql.Append("select  top 1 emp_num,emp_name,emp_passwd,emp_age,flo_num,emp_sex,con_infor from Employee ");
+			strSql.Append(" where emp_num=@emp_num ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@emp_num", SqlDbType.Char,10)			};
+			parameters[0].Value = emp_num;
+
 			stuManage.Model.Employee model=new stuManage.Model.Employee();
-			DataSet ds=DbHelperSQL.Query(strSql.ToString());
+			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
 				return DataRowToModel(ds.Tables[0].Rows[0]);
@@ -206,6 +175,7 @@ namespace stuManage.SQLServerDAL
 				return null;
 			}
 		}
+
 
 		/// <summary>
 		/// 得到一个对象实体
@@ -227,9 +197,9 @@ namespace stuManage.SQLServerDAL
 				{
 					model.emp_passwd=row["emp_passwd"].ToString();
 				}
-				if(row["emp_age"]!=null && row["emp_age"].ToString()!="")
+				if(row["emp_age"]!=null)
 				{
-					model.emp_age=int.Parse(row["emp_age"].ToString());
+					model.emp_age=row["emp_age"].ToString();
 				}
 				if(row["flo_num"]!=null)
 				{
@@ -331,12 +301,34 @@ namespace stuManage.SQLServerDAL
 		}
 
 		/*
-		*/
+		/// <summary>
+		/// 分页获取数据列表
+		/// </summary>
+		public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+		{
+			SqlParameter[] parameters = {
+					new SqlParameter("@tblName", SqlDbType.VarChar, 255),
+					new SqlParameter("@fldName", SqlDbType.VarChar, 255),
+					new SqlParameter("@PageSize", SqlDbType.Int),
+					new SqlParameter("@PageIndex", SqlDbType.Int),
+					new SqlParameter("@IsReCount", SqlDbType.Bit),
+					new SqlParameter("@OrderType", SqlDbType.Bit),
+					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
+					};
+			parameters[0].Value = "Employee";
+			parameters[1].Value = "emp_num";
+			parameters[2].Value = PageSize;
+			parameters[3].Value = PageIndex;
+			parameters[4].Value = 0;
+			parameters[5].Value = 0;
+			parameters[6].Value = strWhere;	
+			return DbHelperSQL.RunProcedure("UP_GetRecordByPage",parameters,"ds");
+		}*/
 
-		#endregion  Method
-		#region  MethodEx
+		#endregion  BasicMethod
+		#region  ExtensionMethod
 
-		#endregion  MethodEx
+		#endregion  ExtensionMethod
 	}
 }
 
