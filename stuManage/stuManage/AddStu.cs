@@ -40,8 +40,8 @@ namespace stuManage
             //数据绑定
             txtStuNum.DataBindings.Add("EditValue", baseDataTable, "num");
             txtStuname.DataBindings.Add("EditValue", baseDataTable, "name");
-            txtStusex.DataBindings.Add("EditValue", baseDataTable, "sex");
-            txtStupro.DataBindings.Add("EditValue", baseDataTable, "profession");
+            Stusex.DataBindings.Add("EditValue", baseDataTable, "sex");
+            Stupro.DataBindings.Add("EditValue", baseDataTable, "profession");
             txtStuflo.DataBindings.Add("EditValue", baseDataTable, "flo_num");
             txtStudor.DataBindings.Add("EditValue", baseDataTable, "dor_num");
             DateStuTime.DataBindings.Add("EditValue", baseDataTable, "check_time");
@@ -58,8 +58,8 @@ namespace stuManage
             stuManage.Model.Stustay model = new stuManage.Model.Stustay();
             model.num = txtStuNum.EditValue.ToString();
             model.name = txtStuname.EditValue.ToString();
-            model.sex = txtStusex.EditValue.ToString();
-            model.profession = txtStupro.EditValue.ToString();
+            model.sex = Stusex.EditValue.ToString();
+            model.profession = Stupro.EditValue.ToString();
             model.flo_num = txtStuflo.EditValue.ToString();
             model.dor_num = txtStudor.EditValue.ToString();
 
@@ -73,6 +73,15 @@ namespace stuManage
             {
                 bll.Update(model);
             }
+            MessageBox.Show("添加成功", "提示");
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtStuNum.Text = "";
+            txtStuname.Text = "";
+            txtStuflo.Text = "";
+            txtStudor.Text = "";
         }
     }
 }

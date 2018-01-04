@@ -46,14 +46,7 @@ namespace stuManage.BLL
 		{
 			
 			return dal.Delete(num);
-		}/*
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public bool DeleteList(string numlist )
-		{
-			return dal.DeleteList(Maticsoft.Common.PageValidate.SafeLongFilter(numlist,0) );
-		}*/
+		}
 
 		/// <summary>
 		/// 得到一个对象实体
@@ -63,30 +56,6 @@ namespace stuManage.BLL
 			
 			return dal.GetModel(num);
 		}
-        /*
-		/// <summary>
-		/// 得到一个对象实体，从缓存中
-		/// </summary>
-		public stuManage.Model.Stustay GetModelByCache(string num)
-		{
-			
-			string CacheKey = "StustayModel-" + num;
-			object objModel = Maticsoft.Common.DataCache.GetCache(CacheKey);
-			if (objModel == null)
-			{
-				try
-				{
-					objModel = dal.GetModel(num);
-					if (objModel != null)
-					{
-						int ModelCache = Maticsoft.Common.ConfigHelper.GetConfigInt("ModelCache");
-						Maticsoft.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
-					}
-				}
-				catch{}
-			}
-			return (stuManage.Model.Stustay)objModel;
-		}*/
 
 		/// <summary>
 		/// 获得数据列表

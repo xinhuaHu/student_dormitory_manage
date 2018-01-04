@@ -28,92 +28,182 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
+            this.gridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.numc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.namec = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.sexc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.professionc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.check_timec = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.flo_numc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dor_numc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnCancle = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCheck = new DevExpress.XtraEditors.SimpleButton();
-            this.stuManageDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
-            this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stuManageDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDel = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
+            this.splitContainerControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // splitContainerControl1
+            // splitContainerControl
             // 
-            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.gridControl1);
-            this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.btnCancle);
-            this.splitContainerControl1.Panel2.Controls.Add(this.btnCheck);
-            this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(938, 597);
-            this.splitContainerControl1.SplitterPosition = 745;
-            this.splitContainerControl1.TabIndex = 0;
-            this.splitContainerControl1.Text = "splitContainerControl1";
+            this.splitContainerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl.Name = "splitContainerControl";
+            this.splitContainerControl.Panel1.Controls.Add(this.gridControl);
+            this.splitContainerControl.Panel1.Text = "Panel1";
+            this.splitContainerControl.Panel2.Controls.Add(this.btnCancle);
+            this.splitContainerControl.Panel2.Controls.Add(this.btnEdit);
+            this.splitContainerControl.Panel2.Controls.Add(this.btnDel);
+            this.splitContainerControl.Panel2.Text = "Panel2";
+            this.splitContainerControl.Size = new System.Drawing.Size(859, 636);
+            this.splitContainerControl.SplitterPosition = 676;
+            this.splitContainerControl.TabIndex = 0;
+            this.splitContainerControl.Text = "splitContainerControl2";
+            // 
+            // gridControl
+            // 
+            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl.Location = new System.Drawing.Point(0, 0);
+            this.gridControl.MainView = this.gridView;
+            this.gridControl.Name = "gridControl";
+            this.gridControl.Size = new System.Drawing.Size(676, 636);
+            this.gridControl.TabIndex = 0;
+            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView});
+            // 
+            // gridView
+            // 
+            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.numc,
+            this.namec,
+            this.sexc,
+            this.professionc,
+            this.check_timec,
+            this.flo_numc,
+            this.dor_numc});
+            this.gridView.GridControl = this.gridControl;
+            this.gridView.Name = "gridView";
+            // 
+            // numc
+            // 
+            this.numc.Caption = "学号";
+            this.numc.FieldName = "num";
+            this.numc.Name = "numc";
+            this.numc.Visible = true;
+            this.numc.VisibleIndex = 0;
+            // 
+            // namec
+            // 
+            this.namec.Caption = "姓名";
+            this.namec.FieldName = "name";
+            this.namec.Name = "namec";
+            this.namec.Visible = true;
+            this.namec.VisibleIndex = 1;
+            // 
+            // sexc
+            // 
+            this.sexc.Caption = "性别";
+            this.sexc.FieldName = "sex";
+            this.sexc.Name = "sexc";
+            this.sexc.Visible = true;
+            this.sexc.VisibleIndex = 2;
+            // 
+            // professionc
+            // 
+            this.professionc.Caption = "系部";
+            this.professionc.FieldName = "profession";
+            this.professionc.Name = "professionc";
+            this.professionc.Visible = true;
+            this.professionc.VisibleIndex = 3;
+            // 
+            // check_timec
+            // 
+            this.check_timec.Caption = "入住时间";
+            this.check_timec.FieldName = "check_time";
+            this.check_timec.Name = "check_timec";
+            this.check_timec.Visible = true;
+            this.check_timec.VisibleIndex = 4;
+            // 
+            // flo_numc
+            // 
+            this.flo_numc.Caption = "楼号";
+            this.flo_numc.FieldName = "flo_num";
+            this.flo_numc.Name = "flo_numc";
+            this.flo_numc.Visible = true;
+            this.flo_numc.VisibleIndex = 5;
+            // 
+            // dor_numc
+            // 
+            this.dor_numc.Caption = "宿舍号";
+            this.dor_numc.FieldName = "dor_num";
+            this.dor_numc.Name = "dor_numc";
+            this.dor_numc.Visible = true;
+            this.dor_numc.VisibleIndex = 6;
             // 
             // btnCancle
             // 
-            this.btnCancle.Location = new System.Drawing.Point(64, 362);
+            this.btnCancle.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancle.Appearance.Options.UseFont = true;
+            this.btnCancle.Location = new System.Drawing.Point(47, 394);
             this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Size = new System.Drawing.Size(75, 23);
-            this.btnCancle.TabIndex = 1;
-            this.btnCancle.Text = "退出";
+            this.btnCancle.Size = new System.Drawing.Size(75, 26);
+            this.btnCancle.TabIndex = 2;
+            this.btnCancle.Text = "退    出";
+            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
             // 
-            // btnCheck
+            // btnEdit
             // 
-            this.btnCheck.Location = new System.Drawing.Point(64, 245);
-            this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(75, 23);
-            this.btnCheck.TabIndex = 0;
-            this.btnCheck.Text = "查看";
-            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            this.btnEdit.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Appearance.Options.UseFont = true;
+            this.btnEdit.Location = new System.Drawing.Point(47, 318);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 26);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "修    改";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // gridControl1
+            // btnDel
             // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(745, 597);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.btnDel.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.Appearance.Options.UseFont = true;
+            this.btnDel.Location = new System.Drawing.Point(47, 252);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(75, 26);
+            this.btnDel.TabIndex = 0;
+            this.btnDel.Text = "删    除";
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // Check
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 597);
-            this.Controls.Add(this.splitContainerControl1);
+            this.ClientSize = new System.Drawing.Size(859, 636);
+            this.Controls.Add(this.splitContainerControl);
             this.Name = "Check";
-            this.Text = "Check";
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
-            this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.stuManageDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Check_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).EndInit();
+            this.splitContainerControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
+        private DevExpress.XtraGrid.GridControl gridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
+        private DevExpress.XtraGrid.Columns.GridColumn numc;
+        private DevExpress.XtraGrid.Columns.GridColumn namec;
+        private DevExpress.XtraGrid.Columns.GridColumn sexc;
+        private DevExpress.XtraGrid.Columns.GridColumn professionc;
+        private DevExpress.XtraGrid.Columns.GridColumn check_timec;
+        private DevExpress.XtraGrid.Columns.GridColumn flo_numc;
+        private DevExpress.XtraGrid.Columns.GridColumn dor_numc;
         private DevExpress.XtraEditors.SimpleButton btnCancle;
-        private DevExpress.XtraEditors.SimpleButton btnCheck;
-        private System.Windows.Forms.BindingSource stuManageDataSetBindingSource;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.SimpleButton btnEdit;
+        private DevExpress.XtraEditors.SimpleButton btnDel;
     }
 }
