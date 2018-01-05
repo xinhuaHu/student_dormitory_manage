@@ -21,7 +21,7 @@ namespace stuManage
         private DataTable baseDataTable;
 
         public bool isadd = true;
-        public string floNum;
+        public string number;
 
         private void EditDorm_Load(object sender, EventArgs e)
         {
@@ -32,12 +32,13 @@ namespace stuManage
             }
             else
             {
-                baseDataTable = bll.GetList("flo_num='" + floNum + "'").Tables[0];
+                baseDataTable = bll.GetList("number='" + number + "'").Tables[0];
                 baseDataTable.TableName = "Dormitory";
                 //baseDataTable.PrimaryKey = new DataColumn[] { baseDataTable.Columns["flo_num"] };
                 //txtFlo.Properties.ReadOnly = true;
             }
             //数据绑定
+            txtnumber.DataBindings.Add("EditValue", baseDataTable, "number");
             txtFlo.DataBindings.Add("EditValue", baseDataTable, "flo_num");
             txtDor.DataBindings.Add("EditValue", baseDataTable, "dor_num");
             txtkezhu.DataBindings.Add("EditValue", baseDataTable, "num_occupants");
@@ -48,6 +49,7 @@ namespace stuManage
         {
             //增加一条新记录
             Dormitory model = new Dormitory();
+            model.number = txtnumber.EditValue.ToString();
             model.flo_num = txtFlo.EditValue.ToString();
             model.dor_num = txtDor.EditValue.ToString();
             model.num_occupants = txtkezhu.EditValue.ToString();
@@ -61,7 +63,7 @@ namespace stuManage
             {
                 bll.Update(model);
             }
-            MessageBox.Show("成功", "提示");
+            MessageBox.Show("修改成功", "提示");
         }
 
         private void btnCancle_Click(object sender, EventArgs e)

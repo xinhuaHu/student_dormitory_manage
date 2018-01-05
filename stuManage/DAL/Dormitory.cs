@@ -15,6 +15,20 @@ namespace stuManage.SQLServerDAL
 		{}
 		#region  BasicMethod
 
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(string number)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from Dormitory");
+			strSql.Append(" where number=@number ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@number", SqlDbType.NVarChar,50)			};
+			parameters[0].Value = number;
+
+			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+		}
 
 
 		/// <summary>
@@ -24,18 +38,20 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Dormitory(");
-			strSql.Append("flo_num,dor_num,num_occupants,live_num)");
+			strSql.Append("number,flo_num,dor_num,num_occupants,live_num)");
 			strSql.Append(" values (");
-			strSql.Append("@flo_num,@dor_num,@num_occupants,@live_num)");
+			strSql.Append("@number,@flo_num,@dor_num,@num_occupants,@live_num)");
 			SqlParameter[] parameters = {
-					new SqlParameter("@flo_num", SqlDbType.Char,10),
-					new SqlParameter("@dor_num", SqlDbType.Char,10),
-					new SqlParameter("@num_occupants", SqlDbType.Char,10),
-					new SqlParameter("@live_num", SqlDbType.Char,10)};
-			parameters[0].Value = model.flo_num;
-			parameters[1].Value = model.dor_num;
-			parameters[2].Value = model.num_occupants;
-			parameters[3].Value = model.live_num;
+					new SqlParameter("@number", SqlDbType.NVarChar,50),
+					new SqlParameter("@flo_num", SqlDbType.NVarChar,50),
+					new SqlParameter("@dor_num", SqlDbType.NVarChar,50),
+					new SqlParameter("@num_occupants", SqlDbType.NVarChar,50),
+					new SqlParameter("@live_num", SqlDbType.NVarChar,50)};
+			parameters[0].Value = model.number;
+			parameters[1].Value = model.flo_num;
+			parameters[2].Value = model.dor_num;
+			parameters[3].Value = model.num_occupants;
+			parameters[4].Value = model.live_num;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -58,16 +74,18 @@ namespace stuManage.SQLServerDAL
 			strSql.Append("dor_num=@dor_num,");
 			strSql.Append("num_occupants=@num_occupants,");
 			strSql.Append("live_num=@live_num");
-            strSql.Append(" where flo_num=@flo_num");
+			strSql.Append(" where number=@number ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@flo_num", SqlDbType.Char,10),
-					new SqlParameter("@dor_num", SqlDbType.Char,10),
-					new SqlParameter("@num_occupants", SqlDbType.Char,10),
-					new SqlParameter("@live_num", SqlDbType.Char,10)};
+					new SqlParameter("@flo_num", SqlDbType.NVarChar,50),
+					new SqlParameter("@dor_num", SqlDbType.NVarChar,50),
+					new SqlParameter("@num_occupants", SqlDbType.NVarChar,50),
+					new SqlParameter("@live_num", SqlDbType.NVarChar,50),
+					new SqlParameter("@number", SqlDbType.NVarChar,50)};
 			parameters[0].Value = model.flo_num;
 			parameters[1].Value = model.dor_num;
 			parameters[2].Value = model.num_occupants;
 			parameters[3].Value = model.live_num;
+			parameters[4].Value = model.number;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -83,16 +101,35 @@ namespace stuManage.SQLServerDAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete()
+		public bool Delete(string number)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Dormitory ");
-			strSql.Append(" where ");
+			strSql.Append(" where number=@number ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@number", SqlDbType.NVarChar,50)			};
+			parameters[0].Value = number;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/// <summary>
+		/// 批量删除数据
+		/// </summary>
+		public bool DeleteList(string numberlist )
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("delete from Dormitory ");
+			strSql.Append(" where number in ("+numberlist + ")  ");
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
 				return true;
@@ -107,14 +144,15 @@ namespace stuManage.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public stuManage.Model.Dormitory GetModel()
+		public stuManage.Model.Dormitory GetModel(string number)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 flo_num,dor_num,num_occupants,live_num from Dormitory ");
-			strSql.Append(" where ");
+			strSql.Append("select  top 1 number,flo_num,dor_num,num_occupants,live_num from Dormitory ");
+			strSql.Append(" where number=@number ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@number", SqlDbType.NVarChar,50)			};
+			parameters[0].Value = number;
 
 			stuManage.Model.Dormitory model=new stuManage.Model.Dormitory();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
@@ -137,6 +175,10 @@ namespace stuManage.SQLServerDAL
 			stuManage.Model.Dormitory model=new stuManage.Model.Dormitory();
 			if (row != null)
 			{
+				if(row["number"]!=null)
+				{
+					model.number=row["number"].ToString();
+				}
 				if(row["flo_num"]!=null)
 				{
 					model.flo_num=row["flo_num"].ToString();
@@ -163,7 +205,7 @@ namespace stuManage.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select flo_num,dor_num,num_occupants,live_num ");
+			strSql.Append("select number,flo_num,dor_num,num_occupants,live_num ");
 			strSql.Append(" FROM Dormitory ");
 			if(strWhere.Trim()!="")
 			{
@@ -183,7 +225,7 @@ namespace stuManage.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" flo_num,dor_num,num_occupants,live_num ");
+			strSql.Append(" number,flo_num,dor_num,num_occupants,live_num ");
 			strSql.Append(" FROM Dormitory ");
 			if(strWhere.Trim()!="")
 			{
@@ -228,7 +270,7 @@ namespace stuManage.SQLServerDAL
 			}
 			else
 			{
-				strSql.Append("order by T. desc");
+				strSql.Append("order by T.number desc");
 			}
 			strSql.Append(")AS Row, T.*  from Dormitory T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
@@ -256,7 +298,7 @@ namespace stuManage.SQLServerDAL
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "Dormitory";
-			parameters[1].Value = "";
+			parameters[1].Value = "number";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;

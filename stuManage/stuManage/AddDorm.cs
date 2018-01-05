@@ -21,7 +21,7 @@ namespace stuManage
         private DataTable baseDataTable;
 
         public bool isadd = true;
-        public string floNum;
+        public string number;
 
         private void AddDorm_Load(object sender, EventArgs e)
         {
@@ -32,12 +32,13 @@ namespace stuManage
             }
             else
             {
-                baseDataTable = bll.GetList("flo_num='" + floNum + "'").Tables[0];
+                baseDataTable = bll.GetList("number='" + number + "'").Tables[0];
                 baseDataTable.TableName = "Dormitory";
-                //baseDataTable.PrimaryKey = new DataColumn[] { baseDataTable.Columns["flo_num"] };
+                baseDataTable.PrimaryKey = new DataColumn[] { baseDataTable.Columns["number"] };
                 //txtFlo.Properties.ReadOnly = true;
             }
             //数据绑定
+            txtnumber.DataBindings.Add("EditValue", baseDataTable, "number");
             txtFlo.DataBindings.Add("EditValue", baseDataTable, "flo_num");
             txtDor.DataBindings.Add("EditValue", baseDataTable, "dor_num");
             txtkezhu.DataBindings.Add("EditValue", baseDataTable, "num_occupants");
@@ -48,6 +49,7 @@ namespace stuManage
         {
             //增加一条新记录
             Dormitory model = new Dormitory();
+            model.number = txtnumber.EditValue.ToString();
             model.flo_num = txtFlo.EditValue.ToString();
             model.dor_num = txtDor.EditValue.ToString();
             model.num_occupants = txtkezhu.EditValue.ToString();
@@ -61,12 +63,21 @@ namespace stuManage
             {
                 bll.Update(model);
             }
-            MessageBox.Show("添加成功", "提示");
+            MessageBox.Show("添加宿舍成功", "提示");
         }
 
         private void btnCancle_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtnumber.Text = "";
+            txtFlo.Text = "";
+            txtDor.Text = "";
+            txtkezhu.Text = "";
+            txtYizhu.Text = "";
         }
 
     }

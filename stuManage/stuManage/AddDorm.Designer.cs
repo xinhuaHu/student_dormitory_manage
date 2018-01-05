@@ -30,6 +30,8 @@
         {
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtnumber = new DevExpress.XtraEditors.TextEdit();
             this.txtFlo = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtYizhu = new DevExpress.XtraEditors.TextEdit();
             this.txtkezhu = new DevExpress.XtraEditors.TextEdit();
@@ -40,10 +42,12 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.btnCancle = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtnumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFlo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtYizhu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtkezhu.Properties)).BeginInit();
@@ -58,6 +62,7 @@
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.groupControl1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.btnClear);
             this.splitContainerControl1.Panel2.Controls.Add(this.btnCancle);
             this.splitContainerControl1.Panel2.Controls.Add(this.btnAdd);
             this.splitContainerControl1.Panel2.Text = "Panel2";
@@ -68,6 +73,8 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Controls.Add(this.txtnumber);
             this.groupControl1.Controls.Add(this.txtFlo);
             this.groupControl1.Controls.Add(this.txtYizhu);
             this.groupControl1.Controls.Add(this.txtkezhu);
@@ -83,9 +90,27 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "添    加";
             // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Location = new System.Drawing.Point(105, 61);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(62, 20);
+            this.labelControl3.TabIndex = 55;
+            this.labelControl3.Text = "编        号";
+            // 
+            // txtnumber
+            // 
+            this.txtnumber.Location = new System.Drawing.Point(212, 59);
+            this.txtnumber.Name = "txtnumber";
+            this.txtnumber.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnumber.Properties.Appearance.Options.UseFont = true;
+            this.txtnumber.Size = new System.Drawing.Size(100, 26);
+            this.txtnumber.TabIndex = 54;
+            // 
             // txtFlo
             // 
-            this.txtFlo.Location = new System.Drawing.Point(213, 98);
+            this.txtFlo.Location = new System.Drawing.Point(212, 104);
             this.txtFlo.Name = "txtFlo";
             this.txtFlo.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFlo.Properties.Appearance.Options.UseFont = true;
@@ -117,7 +142,7 @@
             // 
             // txtkezhu
             // 
-            this.txtkezhu.Location = new System.Drawing.Point(213, 185);
+            this.txtkezhu.Location = new System.Drawing.Point(212, 193);
             this.txtkezhu.Name = "txtkezhu";
             this.txtkezhu.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtkezhu.Properties.Appearance.Options.UseFont = true;
@@ -126,7 +151,7 @@
             // 
             // txtDor
             // 
-            this.txtDor.Location = new System.Drawing.Point(213, 139);
+            this.txtDor.Location = new System.Drawing.Point(212, 145);
             this.txtDor.Name = "txtDor";
             this.txtDor.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDor.Properties.Appearance.Options.UseFont = true;
@@ -145,7 +170,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(106, 187);
+            this.labelControl2.Location = new System.Drawing.Point(105, 195);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(60, 20);
             this.labelControl2.TabIndex = 54;
@@ -154,7 +179,7 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(105, 141);
+            this.labelControl4.Location = new System.Drawing.Point(104, 147);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(61, 20);
             this.labelControl4.TabIndex = 53;
@@ -163,7 +188,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(105, 100);
+            this.labelControl5.Location = new System.Drawing.Point(104, 106);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(62, 20);
             this.labelControl5.TabIndex = 52;
@@ -191,6 +216,17 @@
             this.btnAdd.Text = "确    定";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnClear
+            // 
+            this.btnClear.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Appearance.Options.UseFont = true;
+            this.btnClear.Location = new System.Drawing.Point(176, 33);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 28);
+            this.btnClear.TabIndex = 4;
+            this.btnClear.Text = "清      除";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // AddDorm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -205,6 +241,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtnumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFlo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtYizhu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtkezhu.Properties)).EndInit();
@@ -227,5 +264,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.SimpleButton btnCancle;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.TextEdit txtnumber;
+        private DevExpress.XtraEditors.SimpleButton btnClear;
     }
 }

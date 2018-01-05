@@ -10,10 +10,19 @@ namespace stuManage.Model
 		public Dormitory()
 		{}
 		#region Model
+		private string _number;
 		private string _flo_num;
 		private string _dor_num;
 		private string _num_occupants;
 		private string _live_num;
+		/// <summary>
+		/// 
+		/// </summary>
+		public string number
+		{
+			set{ _number=value;}
+			get{return _number;}
+		}
 		/// <summary>
 		/// 
 		/// </summary>

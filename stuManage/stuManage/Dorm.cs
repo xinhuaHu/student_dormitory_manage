@@ -44,17 +44,18 @@ namespace stuManage
         private void btnEdit_Click(object sender, EventArgs e)
         {
             editDorm = new EditDorm();
-            string flo_num;
+            string number;
 
             DataRow row = gridView.GetFocusedDataRow();
-            flo_num = row["flo_num"].ToString();
-            editDorm.floNum = row["flo_num"].ToString();
+            number = row["number"].ToString();
+            
+            editDorm.number = row["number"].ToString();
             editDorm.isadd = false;
 
             if (editDorm.ShowDialog() == DialogResult.OK)
             {
                 Dormitory_LoadData();
-                GridViewRefresh(flo_num);
+                GridViewRefresh(number);
             }
         }
 
@@ -83,6 +84,38 @@ namespace stuManage
         private void simpleButton4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //取得当前的行
+                DataRow row = gridView.GetFocusedDataRow();
+                string GridKeyValue;
+
+                if (MessageBox.Show("是否删除宿舍?", "提示框", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (row != null)
+                    {
+                        GridKeyValue = row["flo_num"].ToString();
+                    }
+                    else
+                    {
+                        GridKeyValue = "";
+                    }
+                    //bll.Delete(GridKeyValue);
+                    bll.Delete(GridKeyValue);
+                    MessageBox.Show("删除宿舍'" + GridKeyValue + "'成功", "提示");
+                    Dormitory_LoadData();
+                }
+
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+
+            }
         }
     }
 }
