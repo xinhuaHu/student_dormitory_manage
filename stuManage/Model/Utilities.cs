@@ -10,13 +10,22 @@ namespace stuManage.Model
 		public Utilities()
 		{}
 		#region Model
+		private string _number;
 		private string _flo_num;
 		private string _dor_num;
 		private string _month_;
-		private decimal _electricity;
-		private decimal _ele_fee;
-		private decimal _water;
-		private decimal _wat_fee;
+        private string _electricity;
+        private string _ele_fee;
+        private string _water;
+        private string _wat_fee;
+		/// <summary>
+		/// 
+		/// </summary>
+		public string number
+		{
+			set{ _number=value;}
+			get{return _number;}
+		}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -44,7 +53,7 @@ namespace stuManage.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public decimal electricity
+        public string electricity
 		{
 			set{ _electricity=value;}
 			get{return _electricity;}
@@ -52,7 +61,7 @@ namespace stuManage.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public decimal ele_fee
+        public string ele_fee
 		{
 			set{ _ele_fee=value;}
 			get{return _ele_fee;}
@@ -60,7 +69,7 @@ namespace stuManage.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public decimal water
+        public string water
 		{
 			set{ _water=value;}
 			get{return _water;}
@@ -68,7 +77,7 @@ namespace stuManage.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public decimal wat_fee
+        public string wat_fee
 		{
 			set{ _wat_fee=value;}
 			get{return _wat_fee;}

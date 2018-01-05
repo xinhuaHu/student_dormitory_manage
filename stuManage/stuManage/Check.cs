@@ -1,6 +1,11 @@
-﻿using System;
+﻿/*
+ * 查看学生
+ * **/
+using System;
 using System.Data;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid;
 
 namespace stuManage
 {
@@ -14,9 +19,13 @@ namespace stuManage
         private stuManage.BLL.Stustay bll = new BLL.Stustay();
         private DataTable baseDataTable;
 
+        string GridViewKeyField = "num";
+
         private void Stustay_LoadData()
         {
             baseDataTable = bll.GetAllList().Tables[0];
+            baseDataTable.Columns["num"].Caption = "学号";
+
             gridControl.DataSource = baseDataTable;
         }
 
@@ -65,34 +74,20 @@ namespace stuManage
         EditStu editStu;
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            //取得当前的行
+            editStu = new EditStu();
+            string num;
+
             DataRow row = gridView.GetFocusedDataRow();
-            stuManage.Model.Stustay model = new stuManage.Model.Stustay();
-            if (row != null && gridControl.DataSource != null)
+            num = row["num"].ToString();
+
+            editStu.num = row["num"].ToString();
+            editStu.isadd = false;
+
+            if (editStu.ShowDialog() == DialogResult.OK)
             {
-                editStu = new EditStu();
-                editStu.txtNum.Text = row["num"].ToString();
-                editStu.txtName.Text = row["name"].ToString();
-                editStu.txtSex.Text = row["sex"].ToString();
-                editStu.Stupro.Text = row["profession"].ToString();
-                editStu.txtFlo.Text = row["flo_num"].ToString();
-                editStu.txtDor.Text = row["dor_num"].ToString();
-                editStu.DateStuTime.Text = row["check_time"].ToString();
-                editStu.ShowDialog();
                 Stustay_LoadData();
+                GridViewRefresh(num);
             }
-            model.profession = editStu.Stupro.EditValue.ToString();
-            model.flo_num = editStu.txtFlo.EditValue.ToString();
-            model.dor_num = editStu.txtDor.EditValue.ToString();
-            model.check_time = editStu.DateStuTime.DateTime;
-
-            editStu.Stupro.DataBindings.Add("EditValue", baseDataTable, "profession");
-            editStu.txtFlo.DataBindings.Add("EditValue", baseDataTable, "flo_num");
-            editStu.txtDor.DataBindings.Add("EditValue", baseDataTable, "dor_num");
-            editStu.DateStuTime.DataBindings.Add("EditValue", baseDataTable, "check_time");
-
-            bll.Update(model);
-            //MessageBox.Show("修改成功", "提示");
         }
 
         private void btnCancle_Click(object sender, EventArgs e)
@@ -100,5 +95,26 @@ namespace stuManage
             Close();
         }
 
+        public void GridViewRefresh(string keyValue)
+        {
+
+            GridColumn column = gridView.Columns[GridViewKeyField];
+            if (column != null)
+            {
+
+                if (!string.IsNullOrEmpty(keyValue))
+                {
+                    int locate = gridView.LocateByValue(0, column, keyValue);
+                    if (locate == GridControl.InvalidRowHandle)
+                    {
+                        gridView.MoveLast();
+                    }
+                    else
+                    {
+                        gridView.FocusedRowHandle = locate;
+                    }
+                }
+            }
+        }
     }
 }

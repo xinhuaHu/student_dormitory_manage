@@ -15,6 +15,20 @@ namespace stuManage.SQLServerDAL
 		{}
 		#region  BasicMethod
 
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(string number)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from Utilities");
+			strSql.Append(" where number=@number ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@number", SqlDbType.NVarChar,50)			};
+			parameters[0].Value = number;
+
+			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+		}
 
 
 		/// <summary>
@@ -24,24 +38,26 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Utilities(");
-			strSql.Append("flo_num,dor_num,month_,electricity,ele_fee,water,wat_fee)");
+			strSql.Append("number,flo_num,dor_num,month_,electricity,ele_fee,water,wat_fee)");
 			strSql.Append(" values (");
-			strSql.Append("@flo_num,@dor_num,@month_,@electricity,@ele_fee,@water,@wat_fee)");
+			strSql.Append("@number,@flo_num,@dor_num,@month_,@electricity,@ele_fee,@water,@wat_fee)");
 			SqlParameter[] parameters = {
+					new SqlParameter("@number", SqlDbType.NVarChar,50),
 					new SqlParameter("@flo_num", SqlDbType.Char,10),
 					new SqlParameter("@dor_num", SqlDbType.Char,10),
 					new SqlParameter("@month_", SqlDbType.VarChar,4),
-					new SqlParameter("@electricity", SqlDbType.Float,8),
-					new SqlParameter("@ele_fee", SqlDbType.Decimal,5),
-					new SqlParameter("@water", SqlDbType.Float,8),
-					new SqlParameter("@wat_fee", SqlDbType.Decimal,5)};
-			parameters[0].Value = model.flo_num;
-			parameters[1].Value = model.dor_num;
-			parameters[2].Value = model.month_;
-			parameters[3].Value = model.electricity;
-			parameters[4].Value = model.ele_fee;
-			parameters[5].Value = model.water;
-			parameters[6].Value = model.wat_fee;
+					new SqlParameter("@electricity", SqlDbType.Char,10),
+					new SqlParameter("@ele_fee", SqlDbType.Char,10),
+					new SqlParameter("@water", SqlDbType.Char,10),
+					new SqlParameter("@wat_fee", SqlDbType.Char,10)};
+			parameters[0].Value = model.number;
+			parameters[1].Value = model.flo_num;
+			parameters[2].Value = model.dor_num;
+			parameters[3].Value = model.month_;
+			parameters[4].Value = model.electricity;
+			parameters[5].Value = model.ele_fee;
+			parameters[6].Value = model.water;
+			parameters[7].Value = model.wat_fee;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -67,15 +83,16 @@ namespace stuManage.SQLServerDAL
 			strSql.Append("ele_fee=@ele_fee,");
 			strSql.Append("water=@water,");
 			strSql.Append("wat_fee=@wat_fee");
-			strSql.Append(" where ");
+			strSql.Append(" where number=@number ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@flo_num", SqlDbType.Char,10),
 					new SqlParameter("@dor_num", SqlDbType.Char,10),
 					new SqlParameter("@month_", SqlDbType.VarChar,4),
-					new SqlParameter("@electricity", SqlDbType.Float,8),
-					new SqlParameter("@ele_fee", SqlDbType.Decimal,5),
-					new SqlParameter("@water", SqlDbType.Float,8),
-					new SqlParameter("@wat_fee", SqlDbType.Decimal,5)};
+					new SqlParameter("@electricity", SqlDbType.Char,10),
+					new SqlParameter("@ele_fee", SqlDbType.Char,10),
+					new SqlParameter("@water", SqlDbType.Char,10),
+					new SqlParameter("@wat_fee", SqlDbType.Char,10),
+					new SqlParameter("@number", SqlDbType.NVarChar,50)};
 			parameters[0].Value = model.flo_num;
 			parameters[1].Value = model.dor_num;
 			parameters[2].Value = model.month_;
@@ -83,6 +100,7 @@ namespace stuManage.SQLServerDAL
 			parameters[4].Value = model.ele_fee;
 			parameters[5].Value = model.water;
 			parameters[6].Value = model.wat_fee;
+			parameters[7].Value = model.number;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -98,16 +116,35 @@ namespace stuManage.SQLServerDAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete()
+		public bool Delete(string number)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Utilities ");
-			strSql.Append(" where ");
+			strSql.Append(" where number=@number ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@number", SqlDbType.NVarChar,50)			};
+			parameters[0].Value = number;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/// <summary>
+		/// 批量删除数据
+		/// </summary>
+		public bool DeleteList(string numberlist )
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("delete from Utilities ");
+			strSql.Append(" where number in ("+numberlist + ")  ");
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
 				return true;
@@ -122,14 +159,15 @@ namespace stuManage.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public stuManage.Model.Utilities GetModel()
+		public stuManage.Model.Utilities GetModel(string number)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 flo_num,dor_num,month_,electricity,ele_fee,water,wat_fee from Utilities ");
-			strSql.Append(" where ");
+			strSql.Append("select  top 1 number,flo_num,dor_num,month_,electricity,ele_fee,water,wat_fee from Utilities ");
+			strSql.Append(" where number=@number ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@number", SqlDbType.NVarChar,50)			};
+			parameters[0].Value = number;
 
 			stuManage.Model.Utilities model=new stuManage.Model.Utilities();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
@@ -152,6 +190,10 @@ namespace stuManage.SQLServerDAL
 			stuManage.Model.Utilities model=new stuManage.Model.Utilities();
 			if (row != null)
 			{
+				if(row["number"]!=null)
+				{
+					model.number=row["number"].ToString();
+				}
 				if(row["flo_num"]!=null)
 				{
 					model.flo_num=row["flo_num"].ToString();
@@ -164,21 +206,21 @@ namespace stuManage.SQLServerDAL
 				{
 					model.month_=row["month_"].ToString();
 				}
-				if(row["electricity"]!=null && row["electricity"].ToString()!="")
+				if(row["electricity"]!=null)
 				{
-					model.electricity=decimal.Parse(row["electricity"].ToString());
+					model.electricity=row["electricity"].ToString();
 				}
-				if(row["ele_fee"]!=null && row["ele_fee"].ToString()!="")
+				if(row["ele_fee"]!=null)
 				{
-					model.ele_fee=decimal.Parse(row["ele_fee"].ToString());
+					model.ele_fee=row["ele_fee"].ToString();
 				}
-				if(row["water"]!=null && row["water"].ToString()!="")
+				if(row["water"]!=null)
 				{
-					model.water=decimal.Parse(row["water"].ToString());
+					model.water=row["water"].ToString();
 				}
-				if(row["wat_fee"]!=null && row["wat_fee"].ToString()!="")
+				if(row["wat_fee"]!=null)
 				{
-					model.wat_fee=decimal.Parse(row["wat_fee"].ToString());
+					model.wat_fee=row["wat_fee"].ToString();
 				}
 			}
 			return model;
@@ -190,7 +232,7 @@ namespace stuManage.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select flo_num,dor_num,month_,electricity,ele_fee,water,wat_fee ");
+			strSql.Append("select number,flo_num,dor_num,month_,electricity,ele_fee,water,wat_fee ");
 			strSql.Append(" FROM Utilities ");
 			if(strWhere.Trim()!="")
 			{
@@ -210,7 +252,7 @@ namespace stuManage.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" flo_num,dor_num,month_,electricity,ele_fee,water,wat_fee ");
+			strSql.Append(" number,flo_num,dor_num,month_,electricity,ele_fee,water,wat_fee ");
 			strSql.Append(" FROM Utilities ");
 			if(strWhere.Trim()!="")
 			{
@@ -255,7 +297,7 @@ namespace stuManage.SQLServerDAL
 			}
 			else
 			{
-				strSql.Append("order by T.num desc");
+				strSql.Append("order by T.number desc");
 			}
 			strSql.Append(")AS Row, T.*  from Utilities T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
@@ -283,7 +325,7 @@ namespace stuManage.SQLServerDAL
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "Utilities";
-			parameters[1].Value = "num";
+			parameters[1].Value = "number";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;

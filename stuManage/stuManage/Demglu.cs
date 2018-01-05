@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*
+ * 登陆界面
+ * **/
+using System;
 using System.Collections.Generic;
 using stuManage.Model;
 

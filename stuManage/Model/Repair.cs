@@ -10,6 +10,7 @@ namespace stuManage.Model
 		public Repair()
 		{}
 		#region Model
+		private string _number;
 		private string _flo_num;
 		private string _dor_num;
 		private string _art_num;
@@ -17,6 +18,14 @@ namespace stuManage.Model
 		private DateTime _sub_date;
 		private DateTime _sol_date;
 		private decimal _repa_fee;
+		/// <summary>
+		/// 
+		/// </summary>
+		public string number
+		{
+			set{ _number=value;}
+			get{return _number;}
+		}
 		/// <summary>
 		/// 
 		/// </summary>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*
+ * 删除学生(没有使用的窗体)
+ * **/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

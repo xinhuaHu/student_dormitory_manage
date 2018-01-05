@@ -36,7 +36,6 @@
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.iOpen = new DevExpress.XtraBars.BarButtonItem();
-            this.iClose = new DevExpress.XtraBars.BarButtonItem();
             this.iFind = new DevExpress.XtraBars.BarButtonItem();
             this.iExit = new DevExpress.XtraBars.BarButtonItem();
             this.Help = new DevExpress.XtraBars.BarButtonItem();
@@ -63,16 +62,12 @@
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.ribbonMiniToolbar1 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
             this.ribbonMiniToolbar2 = new DevExpress.XtraBars.Ribbon.RibbonMiniToolbar(this.components);
-            this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.Checkp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.EditStup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Dormp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.DormEdp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.WeiXiup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ShuiDianp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.Freep = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -120,7 +115,6 @@
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl.ExpandCollapseItem,
             this.iOpen,
-            this.iClose,
             this.iFind,
             this.iExit,
             this.Help,
@@ -146,17 +140,14 @@
             this.Check});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 78;
+            this.ribbonControl.MaxItemId = 79;
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar1);
             this.ribbonControl.MiniToolbars.Add(this.ribbonMiniToolbar2);
             this.ribbonControl.Name = "ribbonControl";
-            this.ribbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
-            this.ribbonPageCategory1});
             this.ribbonControl.PageHeaderItemLinks.Add(this.About);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2,
-            this.ribbonPage3,
             this.ribbonPage4,
             this.homeRibbonPage});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.MacOffice;
@@ -194,17 +185,6 @@
             this.iOpen.LargeImageIndex = 1;
             this.iOpen.Name = "iOpen";
             this.iOpen.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            // 
-            // iClose
-            // 
-            this.iClose.Caption = "&Close";
-            this.iClose.Description = "Closes the active document.";
-            this.iClose.Hint = "Closes the active document";
-            this.iClose.Id = 3;
-            this.iClose.ImageIndex = 2;
-            this.iClose.LargeImageIndex = 2;
-            this.iClose.Name = "iClose";
-            this.iClose.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // iFind
             // 
@@ -355,10 +335,8 @@
             // 
             // EditStu
             // 
-            this.EditStu.Caption = "修改学生";
-            this.EditStu.Id = 76;
+            this.EditStu.Id = 78;
             this.EditStu.Name = "EditStu";
-            this.EditStu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.EditStu_ItemClick_1);
             // 
             // Dorm
             // 
@@ -372,6 +350,7 @@
             this.ShuiDian.Caption = "水电查询";
             this.ShuiDian.Id = 66;
             this.ShuiDian.Name = "ShuiDian";
+            this.ShuiDian.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ShuiDian_ItemClick);
             // 
             // Free
             // 
@@ -407,17 +386,11 @@
             this.ribbonImageCollectionLarge.Images.SetKeyName(7, "Ribbon_Content_32x32.png");
             this.ribbonImageCollectionLarge.Images.SetKeyName(8, "Ribbon_Info_32x32.png");
             // 
-            // ribbonPageCategory1
-            // 
-            this.ribbonPageCategory1.Name = "ribbonPageCategory1";
-            this.ribbonPageCategory1.Text = "ribbonPageCategory1";
-            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.Checkp,
-            this.EditStup});
+            this.Checkp});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "学生管理";
             // 
@@ -432,12 +405,6 @@
             this.Checkp.ItemLinks.Add(this.Check);
             this.Checkp.Name = "Checkp";
             this.Checkp.Text = "查看";
-            // 
-            // EditStup
-            // 
-            this.EditStup.ItemLinks.Add(this.EditStu);
-            this.EditStup.Name = "EditStup";
-            this.EditStup.Text = "修改";
             // 
             // ribbonPage2
             // 
@@ -458,18 +425,6 @@
             this.DormEdp.ItemLinks.Add(this.DormAdd);
             this.DormEdp.Name = "DormEdp";
             this.DormEdp.Text = "添加";
-            // 
-            // ribbonPage3
-            // 
-            this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.WeiXiup});
-            this.ribbonPage3.Name = "ribbonPage3";
-            this.ribbonPage3.Text = "维修管理";
-            // 
-            // WeiXiup
-            // 
-            this.WeiXiup.Name = "WeiXiup";
-            this.WeiXiup.Text = "维修";
             // 
             // ribbonPage4
             // 
@@ -545,7 +500,6 @@
         private System.Windows.Forms.ImageList navbarImageListLarge;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.BarButtonItem iOpen;
-        private DevExpress.XtraBars.BarButtonItem iClose;
         private DevExpress.XtraBars.BarButtonItem iFind;
         private DevExpress.XtraBars.BarButtonItem iExit;
         private DevExpress.XtraBars.BarButtonItem Help;
@@ -563,7 +517,6 @@
         private DevExpress.XtraBars.RibbonGalleryBarItem rgbiSkins;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
         private DevExpress.XtraBars.Ribbon.RibbonPage homeRibbonPage;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup skinsRibbonPageGroup;
@@ -580,12 +533,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup DormEdp;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ShuiDianp;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup Freep;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup WeiXiup;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup Checkp;
         private DevExpress.XtraBars.Ribbon.RibbonMiniToolbar ribbonMiniToolbar2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup EditStup;
 
     }
 }

@@ -262,6 +262,7 @@
             this.sBtn_Ok.Size = new System.Drawing.Size(75, 32);
             this.sBtn_Ok.TabIndex = 42;
             this.sBtn_Ok.Text = "修   改";
+            this.sBtn_Ok.Click += new System.EventHandler(this.sBtn_Ok_Click);
             // 
             // EditStu
             // 
@@ -271,6 +272,7 @@
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "EditStu";
             this.Text = "EditSt";
+            this.Load += new System.EventHandler(this.EditStu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();

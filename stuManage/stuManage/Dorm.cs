@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿/*
+ * 查看宿舍
+ * **/
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid;
@@ -17,8 +15,6 @@ namespace stuManage
         {
             InitializeComponent();
         }
-
-        //private stuManage.BLL.Stustay bll = new BLL.Stustay();
 
         private stuManage.BLL.Dormitory bll = new BLL.Dormitory();
         private DataTable baseDataTable;

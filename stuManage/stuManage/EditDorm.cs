@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿/*
+ * 宿舍修改
+ * **/
+using System;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 using stuManage.Model;
 
 namespace stuManage
@@ -35,7 +33,6 @@ namespace stuManage
                 baseDataTable = bll.GetList("number='" + number + "'").Tables[0];
                 baseDataTable.TableName = "Dormitory";
                 //baseDataTable.PrimaryKey = new DataColumn[] { baseDataTable.Columns["flo_num"] };
-                //txtFlo.Properties.ReadOnly = true;
             }
             //数据绑定
             txtnumber.DataBindings.Add("EditValue", baseDataTable, "number");

@@ -15,6 +15,20 @@ namespace stuManage.SQLServerDAL
 		{}
 		#region  BasicMethod
 
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(string number)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from Repair");
+			strSql.Append(" where number=@number ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@number", SqlDbType.NVarChar,50)			};
+			parameters[0].Value = number;
+
+			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+		}
 
 
 		/// <summary>
@@ -24,10 +38,11 @@ namespace stuManage.SQLServerDAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Repair(");
-			strSql.Append("flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee)");
+			strSql.Append("number,flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee)");
 			strSql.Append(" values (");
-			strSql.Append("@flo_num,@dor_num,@art_num,@repa_rea,@sub_date,@sol_date,@repa_fee)");
+			strSql.Append("@number,@flo_num,@dor_num,@art_num,@repa_rea,@sub_date,@sol_date,@repa_fee)");
 			SqlParameter[] parameters = {
+					new SqlParameter("@number", SqlDbType.NVarChar,50),
 					new SqlParameter("@flo_num", SqlDbType.Char,10),
 					new SqlParameter("@dor_num", SqlDbType.Char,10),
 					new SqlParameter("@art_num", SqlDbType.Char,8),
@@ -35,13 +50,14 @@ namespace stuManage.SQLServerDAL
 					new SqlParameter("@sub_date", SqlDbType.DateTime),
 					new SqlParameter("@sol_date", SqlDbType.DateTime),
 					new SqlParameter("@repa_fee", SqlDbType.Decimal,5)};
-			parameters[0].Value = model.flo_num;
-			parameters[1].Value = model.dor_num;
-			parameters[2].Value = model.art_num;
-			parameters[3].Value = model.repa_rea;
-			parameters[4].Value = model.sub_date;
-			parameters[5].Value = model.sol_date;
-			parameters[6].Value = model.repa_fee;
+			parameters[0].Value = model.number;
+			parameters[1].Value = model.flo_num;
+			parameters[2].Value = model.dor_num;
+			parameters[3].Value = model.art_num;
+			parameters[4].Value = model.repa_rea;
+			parameters[5].Value = model.sub_date;
+			parameters[6].Value = model.sol_date;
+			parameters[7].Value = model.repa_fee;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -67,7 +83,7 @@ namespace stuManage.SQLServerDAL
 			strSql.Append("sub_date=@sub_date,");
 			strSql.Append("sol_date=@sol_date,");
 			strSql.Append("repa_fee=@repa_fee");
-			strSql.Append(" where ");
+			strSql.Append(" where number=@number ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@flo_num", SqlDbType.Char,10),
 					new SqlParameter("@dor_num", SqlDbType.Char,10),
@@ -75,7 +91,8 @@ namespace stuManage.SQLServerDAL
 					new SqlParameter("@repa_rea", SqlDbType.Char,50),
 					new SqlParameter("@sub_date", SqlDbType.DateTime),
 					new SqlParameter("@sol_date", SqlDbType.DateTime),
-					new SqlParameter("@repa_fee", SqlDbType.Decimal,5)};
+					new SqlParameter("@repa_fee", SqlDbType.Decimal,5),
+					new SqlParameter("@number", SqlDbType.NVarChar,50)};
 			parameters[0].Value = model.flo_num;
 			parameters[1].Value = model.dor_num;
 			parameters[2].Value = model.art_num;
@@ -83,6 +100,7 @@ namespace stuManage.SQLServerDAL
 			parameters[4].Value = model.sub_date;
 			parameters[5].Value = model.sol_date;
 			parameters[6].Value = model.repa_fee;
+			parameters[7].Value = model.number;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -98,16 +116,35 @@ namespace stuManage.SQLServerDAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete()
+		public bool Delete(string number)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Repair ");
-			strSql.Append(" where ");
+			strSql.Append(" where number=@number ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@number", SqlDbType.NVarChar,50)			};
+			parameters[0].Value = number;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+			if (rows > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		/// <summary>
+		/// 批量删除数据
+		/// </summary>
+		public bool DeleteList(string numberlist )
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("delete from Repair ");
+			strSql.Append(" where number in ("+numberlist + ")  ");
+			int rows=DbHelperSQL.ExecuteSql(strSql.ToString());
 			if (rows > 0)
 			{
 				return true;
@@ -122,14 +159,15 @@ namespace stuManage.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public stuManage.Model.Repair GetModel()
+		public stuManage.Model.Repair GetModel(string number)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee from Repair ");
-			strSql.Append(" where ");
+			strSql.Append("select  top 1 number,flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee from Repair ");
+			strSql.Append(" where number=@number ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@number", SqlDbType.NVarChar,50)			};
+			parameters[0].Value = number;
 
 			stuManage.Model.Repair model=new stuManage.Model.Repair();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
@@ -152,6 +190,10 @@ namespace stuManage.SQLServerDAL
 			stuManage.Model.Repair model=new stuManage.Model.Repair();
 			if (row != null)
 			{
+				if(row["number"]!=null)
+				{
+					model.number=row["number"].ToString();
+				}
 				if(row["flo_num"]!=null)
 				{
 					model.flo_num=row["flo_num"].ToString();
@@ -190,7 +232,7 @@ namespace stuManage.SQLServerDAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee ");
+			strSql.Append("select number,flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee ");
 			strSql.Append(" FROM Repair ");
 			if(strWhere.Trim()!="")
 			{
@@ -210,7 +252,7 @@ namespace stuManage.SQLServerDAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee ");
+			strSql.Append(" number,flo_num,dor_num,art_num,repa_rea,sub_date,sol_date,repa_fee ");
 			strSql.Append(" FROM Repair ");
 			if(strWhere.Trim()!="")
 			{
@@ -255,7 +297,7 @@ namespace stuManage.SQLServerDAL
 			}
 			else
 			{
-				strSql.Append("order by T.emp_num desc");
+				strSql.Append("order by T.number desc");
 			}
 			strSql.Append(")AS Row, T.*  from Repair T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
@@ -283,7 +325,7 @@ namespace stuManage.SQLServerDAL
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "Repair";
-			parameters[1].Value = "emp_num";
+			parameters[1].Value = "number";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;
