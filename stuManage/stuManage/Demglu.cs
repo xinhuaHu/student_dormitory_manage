@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using stuManage.Model;
+using System.Windows.Forms;
 
 namespace stuManage
 {
@@ -14,6 +15,7 @@ namespace stuManage
             InitializeComponent();
         }
 
+        private stuManage.BLL.Employee eBll = new BLL.Employee();
         private void sBtn_cancle_Click(object sender, EventArgs e)
         {
             Close();
@@ -21,11 +23,14 @@ namespace stuManage
 
         private void sBtn_queding_Click(object sender, EventArgs e)
         {
-            Employee emp = new Employee();
-            emp.emp_name = txtName.Text;
-            emp.emp_passwd = txtPassed.Text;
-            MainFrom mainFrom = new MainFrom();
-            mainFrom.Show();
+            if(txtName.Text.Trim() == "" || txtPassed.Text.Trim() == "")
+            {
+                MessageBox.Show("请输入用户名和密码", "提示");
+            }
+            else
+            {
+                
+            }
         }
     }
 }

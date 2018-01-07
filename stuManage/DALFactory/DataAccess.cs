@@ -9,15 +9,6 @@ namespace stuManage.DALFactory
         static readonly string AssemblyName = ConfigurationSettings.AppSettings["DalAssemblyName"];
 		
 		/// <summary>
-		/// 创建数据层接口
-		/// </summary>
-		//public static t Create(string ClassName)
-		//{
-			//string ClassNamespace = AssemblyPath +"."+ ClassName;
-			//object objType = CreateObject(AssemblyPath, ClassNamespace);
-			//return (t)objType;
-		//}
-		/// <summary>
 		/// 创建Dormitory数据层接口。
 		/// </summary>
 		public static stuManage.IDAL.IDormitory CreateDormitory()
@@ -27,7 +18,6 @@ namespace stuManage.DALFactory
             object objType = Assembly.Load(AssemblyName).CreateInstance(ClassNamespace);
 			return (stuManage.IDAL.IDormitory)objType;
 		}
-
 
 		/// <summary>
 		/// 创建Employee数据层接口。
@@ -40,19 +30,6 @@ namespace stuManage.DALFactory
 			return (stuManage.IDAL.IEmployee)objType;
 		}
 
-
-		/// <summary>
-		/// 创建Repair数据层接口。
-		/// </summary>
-		public static stuManage.IDAL.IRepair CreateRepair()
-		{
-
-            string ClassNamespace = AssemblyName + ".Repair";
-            object objType = Assembly.Load(AssemblyName).CreateInstance(ClassNamespace);
-			return (stuManage.IDAL.IRepair)objType;
-		}
-
-
 		/// <summary>
 		/// 创建Stustay数据层接口。
 		/// </summary>
@@ -63,7 +40,6 @@ namespace stuManage.DALFactory
             object objType = Assembly.Load(AssemblyName).CreateInstance(ClassNamespace);
 			return (stuManage.IDAL.IStustay)objType;
 		}
-
 
 		/// <summary>
 		/// 创建Utilities数据层接口。

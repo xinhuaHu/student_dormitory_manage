@@ -1,7 +1,4 @@
-﻿/*
- * 删除学生(没有使用的窗体)
- * **/
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +9,11 @@ using DevExpress.XtraEditors;
 
 namespace stuManage
 {
-    public partial class DelStu : DevExpress.XtraEditors.XtraForm
+    public partial class Guanyu : DevExpress.XtraEditors.XtraForm
     {
-        public DelStu()
+        public Guanyu()
         {
             InitializeComponent();
-        }
-
-        private void groupControl3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

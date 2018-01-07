@@ -40,9 +40,9 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancle = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -93,7 +93,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(105, 61);
+            this.labelControl3.Location = new System.Drawing.Point(106, 81);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(62, 20);
             this.labelControl3.TabIndex = 55;
@@ -101,7 +101,7 @@
             // 
             // txtnumber
             // 
-            this.txtnumber.Location = new System.Drawing.Point(212, 59);
+            this.txtnumber.Location = new System.Drawing.Point(213, 79);
             this.txtnumber.Name = "txtnumber";
             this.txtnumber.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnumber.Properties.Appearance.Options.UseFont = true;
@@ -110,7 +110,7 @@
             // 
             // txtFlo
             // 
-            this.txtFlo.Location = new System.Drawing.Point(212, 104);
+            this.txtFlo.Location = new System.Drawing.Point(213, 124);
             this.txtFlo.Name = "txtFlo";
             this.txtFlo.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFlo.Properties.Appearance.Options.UseFont = true;
@@ -133,7 +133,7 @@
             // 
             // txtYizhu
             // 
-            this.txtYizhu.Location = new System.Drawing.Point(213, 234);
+            this.txtYizhu.Location = new System.Drawing.Point(213, 260);
             this.txtYizhu.Name = "txtYizhu";
             this.txtYizhu.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtYizhu.Properties.Appearance.Options.UseFont = true;
@@ -142,7 +142,7 @@
             // 
             // txtkezhu
             // 
-            this.txtkezhu.Location = new System.Drawing.Point(212, 193);
+            this.txtkezhu.Location = new System.Drawing.Point(213, 213);
             this.txtkezhu.Name = "txtkezhu";
             this.txtkezhu.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtkezhu.Properties.Appearance.Options.UseFont = true;
@@ -151,7 +151,7 @@
             // 
             // txtDor
             // 
-            this.txtDor.Location = new System.Drawing.Point(212, 145);
+            this.txtDor.Location = new System.Drawing.Point(213, 165);
             this.txtDor.Name = "txtDor";
             this.txtDor.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDor.Properties.Appearance.Options.UseFont = true;
@@ -161,7 +161,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(105, 236);
+            this.labelControl1.Location = new System.Drawing.Point(105, 262);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(60, 20);
             this.labelControl1.TabIndex = 55;
@@ -170,7 +170,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(105, 195);
+            this.labelControl2.Location = new System.Drawing.Point(106, 215);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(60, 20);
             this.labelControl2.TabIndex = 54;
@@ -179,7 +179,7 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(104, 147);
+            this.labelControl4.Location = new System.Drawing.Point(105, 167);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(61, 20);
             this.labelControl4.TabIndex = 53;
@@ -188,11 +188,22 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(104, 106);
+            this.labelControl5.Location = new System.Drawing.Point(105, 126);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(62, 20);
             this.labelControl5.TabIndex = 52;
             this.labelControl5.Text = "楼        号";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Appearance.Options.UseFont = true;
+            this.btnClear.Location = new System.Drawing.Point(176, 33);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 28);
+            this.btnClear.TabIndex = 4;
+            this.btnClear.Text = "清      除";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnCancle
             // 
@@ -215,17 +226,6 @@
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "确    定";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Appearance.Options.UseFont = true;
-            this.btnClear.Location = new System.Drawing.Point(176, 33);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 28);
-            this.btnClear.TabIndex = 4;
-            this.btnClear.Text = "清      除";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // AddDorm
             // 

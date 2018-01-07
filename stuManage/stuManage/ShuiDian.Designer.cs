@@ -36,12 +36,12 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancle = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancle = new DevExpress.XtraEditors.SimpleButton();
+            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
@@ -55,7 +55,7 @@
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.gridControl);
             this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.btnAdd);
+            this.splitContainerControl1.Panel2.Controls.Add(this.btnDel);
             this.splitContainerControl1.Panel2.Controls.Add(this.btnCancle);
             this.splitContainerControl1.Panel2.Controls.Add(this.btnEdit);
             this.splitContainerControl1.Panel2.Text = "Panel2";
@@ -129,39 +129,6 @@
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Appearance.Options.UseFont = true;
-            this.btnAdd.Location = new System.Drawing.Point(35, 228);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 28);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "添    加";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnCancle
-            // 
-            this.btnCancle.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancle.Appearance.Options.UseFont = true;
-            this.btnCancle.Location = new System.Drawing.Point(35, 399);
-            this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Size = new System.Drawing.Size(75, 28);
-            this.btnCancle.TabIndex = 2;
-            this.btnCancle.Text = "退    出";
-            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Location = new System.Drawing.Point(35, 309);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 28);
-            this.btnEdit.TabIndex = 0;
-            this.btnEdit.Text = "修    改";
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "电费";
@@ -185,6 +152,39 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 7;
+            // 
+            // btnDel
+            // 
+            this.btnDel.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.Appearance.Options.UseFont = true;
+            this.btnDel.Location = new System.Drawing.Point(37, 222);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(75, 28);
+            this.btnDel.TabIndex = 3;
+            this.btnDel.Text = "删    除";
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // btnCancle
+            // 
+            this.btnCancle.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancle.Appearance.Options.UseFont = true;
+            this.btnCancle.Location = new System.Drawing.Point(37, 390);
+            this.btnCancle.Name = "btnCancle";
+            this.btnCancle.Size = new System.Drawing.Size(75, 28);
+            this.btnCancle.TabIndex = 2;
+            this.btnCancle.Text = "退    出";
+            this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Appearance.Options.UseFont = true;
+            this.btnEdit.Location = new System.Drawing.Point(37, 300);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 28);
+            this.btnEdit.TabIndex = 0;
+            this.btnEdit.Text = "修    改";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // ShuiDian
             // 
@@ -215,9 +215,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraEditors.SimpleButton btnCancle;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
-        private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraEditors.SimpleButton btnDel;
     }
 }

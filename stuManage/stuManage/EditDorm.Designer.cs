@@ -91,7 +91,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(111, 92);
+            this.labelControl3.Location = new System.Drawing.Point(116, 71);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(62, 20);
             this.labelControl3.TabIndex = 53;
@@ -99,7 +99,7 @@
             // 
             // txtnumber
             // 
-            this.txtnumber.Location = new System.Drawing.Point(218, 90);
+            this.txtnumber.Location = new System.Drawing.Point(223, 69);
             this.txtnumber.Name = "txtnumber";
             this.txtnumber.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtnumber.Properties.Appearance.Options.UseFont = true;
@@ -109,7 +109,7 @@
             // 
             // txtFlo
             // 
-            this.txtFlo.Location = new System.Drawing.Point(218, 139);
+            this.txtFlo.Location = new System.Drawing.Point(223, 118);
             this.txtFlo.Name = "txtFlo";
             this.txtFlo.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFlo.Properties.Appearance.Options.UseFont = true;
@@ -132,7 +132,7 @@
             // 
             // txtYizhu
             // 
-            this.txtYizhu.Location = new System.Drawing.Point(218, 289);
+            this.txtYizhu.Location = new System.Drawing.Point(223, 268);
             this.txtYizhu.Name = "txtYizhu";
             this.txtYizhu.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtYizhu.Properties.Appearance.Options.UseFont = true;
@@ -141,7 +141,7 @@
             // 
             // txtkezhu
             // 
-            this.txtkezhu.Location = new System.Drawing.Point(217, 241);
+            this.txtkezhu.Location = new System.Drawing.Point(222, 220);
             this.txtkezhu.Name = "txtkezhu";
             this.txtkezhu.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtkezhu.Properties.Appearance.Options.UseFont = true;
@@ -150,7 +150,7 @@
             // 
             // txtDor
             // 
-            this.txtDor.Location = new System.Drawing.Point(217, 189);
+            this.txtDor.Location = new System.Drawing.Point(222, 168);
             this.txtDor.Name = "txtDor";
             this.txtDor.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDor.Properties.Appearance.Options.UseFont = true;
@@ -160,7 +160,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(110, 291);
+            this.labelControl1.Location = new System.Drawing.Point(115, 270);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(60, 20);
             this.labelControl1.TabIndex = 46;
@@ -169,7 +169,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(110, 243);
+            this.labelControl2.Location = new System.Drawing.Point(115, 222);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(60, 20);
             this.labelControl2.TabIndex = 45;
@@ -178,7 +178,7 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(109, 191);
+            this.labelControl4.Location = new System.Drawing.Point(114, 170);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(61, 20);
             this.labelControl4.TabIndex = 44;
@@ -187,7 +187,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(110, 141);
+            this.labelControl5.Location = new System.Drawing.Point(115, 120);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(62, 20);
             this.labelControl5.TabIndex = 43;
@@ -197,7 +197,7 @@
             // 
             this.btnCancle.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancle.Appearance.Options.UseFont = true;
-            this.btnCancle.Location = new System.Drawing.Point(283, 44);
+            this.btnCancle.Location = new System.Drawing.Point(291, 35);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(75, 28);
             this.btnCancle.TabIndex = 1;
@@ -208,7 +208,7 @@
             // 
             this.btnEdit.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Location = new System.Drawing.Point(62, 44);
+            this.btnEdit.Location = new System.Drawing.Point(70, 35);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 28);
             this.btnEdit.TabIndex = 0;

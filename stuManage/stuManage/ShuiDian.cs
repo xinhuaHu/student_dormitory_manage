@@ -61,26 +61,6 @@ namespace stuManage
             this.Close();
         }
 
-        //添加
-        EditdShuiDian edit1;
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            edit1 = new EditdShuiDian();
-            string number;
-
-            DataRow row = gridView.GetFocusedDataRow();
-            number = row["number"].ToString();
-
-            edit1.number = row["number"].ToString();
-            edit1.isadd = false;
-
-            if (edit1.ShowDialog() == DialogResult.OK)
-            {
-                Utilities_LoadData();
-                GridViewRefresh(number);
-            }
-        }
-
         public void GridViewRefresh(string keyValue)
         {
 
@@ -100,6 +80,35 @@ namespace stuManage
                         gridView.FocusedRowHandle = locate;
                     }
                 }
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow row = gridView.GetFocusedDataRow();
+                string GridKeyValue;
+                if (MessageBox.Show("是否删除?", "提示框", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (row != null)
+                    {
+                        GridKeyValue = row["flo_num"].ToString();
+                    }
+                    else
+                    {
+                        GridKeyValue = "";
+                    }
+
+                    bll.Delete(GridKeyValue);
+                    MessageBox.Show("删除宿舍'" + GridKeyValue + "'成功", "提示");
+                    Utilities_LoadData();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+
             }
         }
     }

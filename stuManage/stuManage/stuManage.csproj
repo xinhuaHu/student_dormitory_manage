@@ -71,11 +71,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Guanyu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guanyu.Designer.cs">
+      <DependentUpon>Guanyu.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddDorm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddDorm.Designer.cs">
       <DependentUpon>AddDorm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddShuiDian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddShuiDian.Designer.cs">
+      <DependentUpon>AddShuiDian.cs</DependentUpon>
     </Compile>
     <Compile Include="AddStu.cs">
       <SubType>Form</SubType>
@@ -83,17 +95,11 @@
     <Compile Include="AddStu.Designer.cs">
       <DependentUpon>AddStu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Check.cs">
+    <Compile Include="CheckDorm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Check.Designer.cs">
-      <DependentUpon>Check.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DelStu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DelStu.Designer.cs">
-      <DependentUpon>DelStu.cs</DependentUpon>
+    <Compile Include="CheckDorm.Designer.cs">
+      <DependentUpon>CheckDorm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dorm.cs">
       <SubType>Form</SubType>
@@ -140,17 +146,20 @@
     <Compile Include="ShuiDian.Designer.cs">
       <DependentUpon>ShuiDian.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Guanyu.resx">
+      <DependentUpon>Guanyu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddDorm.resx">
       <DependentUpon>AddDorm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddShuiDian.resx">
+      <DependentUpon>AddShuiDian.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddStu.resx">
       <DependentUpon>AddStu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Check.resx">
-      <DependentUpon>Check.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DelStu.resx">
-      <DependentUpon>DelStu.cs</DependentUpon>
+    <EmbeddedResource Include="CheckDorm.resx">
+      <DependentUpon>CheckDorm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Demglu.resx">
       <DependentUpon>Demglu.cs</DependentUpon>

@@ -176,7 +176,6 @@ namespace stuManage.SQLServerDAL
 			}
 		}
 
-
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>

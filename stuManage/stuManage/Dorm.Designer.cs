@@ -31,6 +31,7 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -38,7 +39,6 @@
             this.btnDel = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
@@ -83,6 +83,14 @@
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "编号";
+            this.gridColumn5.FieldName = "number";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 0;
+            // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "楼号";
@@ -119,7 +127,7 @@
             // 
             this.btnDel.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDel.Appearance.Options.UseFont = true;
-            this.btnDel.Location = new System.Drawing.Point(24, 148);
+            this.btnDel.Location = new System.Drawing.Point(29, 142);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(75, 27);
             this.btnDel.TabIndex = 4;
@@ -130,7 +138,7 @@
             // 
             this.simpleButton4.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Location = new System.Drawing.Point(24, 297);
+            this.simpleButton4.Location = new System.Drawing.Point(29, 291);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(75, 26);
             this.simpleButton4.TabIndex = 3;
@@ -141,20 +149,12 @@
             // 
             this.btnEdit.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Location = new System.Drawing.Point(24, 217);
+            this.btnEdit.Location = new System.Drawing.Point(29, 211);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 26);
             this.btnEdit.TabIndex = 2;
             this.btnEdit.Text = "修     改";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "编号";
-            this.gridColumn5.FieldName = "number";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 0;
             // 
             // Dorm
             // 

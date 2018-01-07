@@ -1,6 +1,6 @@
 ﻿namespace stuManage
 {
-    partial class Check
+    partial class CheckDorm
     {
         /// <summary>
         /// Required designer variable.
@@ -147,7 +147,7 @@
             // 
             this.btnCancle.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancle.Appearance.Options.UseFont = true;
-            this.btnCancle.Location = new System.Drawing.Point(47, 394);
+            this.btnCancle.Location = new System.Drawing.Point(52, 376);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(75, 26);
             this.btnCancle.TabIndex = 2;
@@ -158,7 +158,7 @@
             // 
             this.btnEdit.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Location = new System.Drawing.Point(47, 318);
+            this.btnEdit.Location = new System.Drawing.Point(52, 300);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 26);
             this.btnEdit.TabIndex = 1;
@@ -169,7 +169,7 @@
             // 
             this.btnDel.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDel.Appearance.Options.UseFont = true;
-            this.btnDel.Location = new System.Drawing.Point(47, 252);
+            this.btnDel.Location = new System.Drawing.Point(52, 234);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(75, 26);
             this.btnDel.TabIndex = 0;

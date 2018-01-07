@@ -100,7 +100,7 @@ namespace stuManage
                     {
                         GridKeyValue = "";
                     }
-                    //bll.Delete(GridKeyValue);
+
                     bll.Delete(GridKeyValue);
                     MessageBox.Show("删除宿舍'" + GridKeyValue + "'成功", "提示");
                     Dormitory_LoadData();

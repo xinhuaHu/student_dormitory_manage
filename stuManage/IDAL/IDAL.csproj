@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="IDormitory.cs" />
     <Compile Include="IEmployee.cs" />
-    <Compile Include="IRepair.cs" />
     <Compile Include="IStustay.cs" />
     <Compile Include="IUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

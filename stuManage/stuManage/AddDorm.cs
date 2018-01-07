@@ -33,7 +33,6 @@ namespace stuManage
                 baseDataTable = bll.GetList("number='" + number + "'").Tables[0];
                 baseDataTable.TableName = "Dormitory";
                 baseDataTable.PrimaryKey = new DataColumn[] { baseDataTable.Columns["number"] };
-                //txtFlo.Properties.ReadOnly = true;
             }
             //数据绑定
             txtnumber.DataBindings.Add("EditValue", baseDataTable, "number");

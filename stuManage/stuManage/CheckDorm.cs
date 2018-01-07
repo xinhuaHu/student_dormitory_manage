@@ -9,9 +9,9 @@ using DevExpress.XtraGrid;
 
 namespace stuManage
 {
-    public partial class Check : DevExpress.XtraEditors.XtraForm
+    public partial class CheckDorm : DevExpress.XtraEditors.XtraForm
     {
-        public Check()
+        public CheckDorm()
         {
             InitializeComponent();
         }

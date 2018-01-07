@@ -40,21 +40,6 @@ namespace stuManage
             addstu.Show();
         }
 
-        //删除学生
-        DelStu delStu;
-        private void DelStu_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            delStu = new DelStu();
-            for (int x = 0; x < this.MdiChildren.Length; x++)
-            {
-                Form tempChild = (Form)this.MdiChildren[x];
-                tempChild.Close();
-            }
-            delStu.MdiParent = this;
-            delStu.WindowState = FormWindowState.Maximized;
-            delStu.Show();
-        }
-
         //宿舍查询
         Dorm drom;
         private void Dorm_ItemClick(object sender, ItemClickEventArgs e)
@@ -71,10 +56,10 @@ namespace stuManage
         }
 
         // 查看学生
-        Check check;
+        CheckDorm check;
         private void Check_ItemClick(object sender, ItemClickEventArgs e)
         {
-            check = new Check();
+            check = new CheckDorm();
             for (int x = 0; x < this.MdiChildren.Length; x++)
             {
                 Form tempChild = (Form)this.MdiChildren[x];
@@ -113,6 +98,36 @@ namespace stuManage
             shuiDian.MdiParent = this;
             shuiDian.WindowState = FormWindowState.Maximized;
             shuiDian.Show();
+        }
+
+        //添加水电数据
+        AddShuiDian addShuiDian;
+        private void AddFree_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            addShuiDian = new AddShuiDian();
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                tempChild.Close();
+            }
+            addShuiDian.MdiParent = this;
+            addShuiDian.WindowState = FormWindowState.Maximized;
+            addShuiDian.Show();
+        }
+
+        //关于
+        Guanyu guanyu;
+        private void guangyu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            guanyu = new Guanyu();
+            for (int x = 0; x < this.MdiChildren.Length; x++)
+            {
+                Form tempChild = (Form)this.MdiChildren[x];
+                tempChild.Close();
+            }
+            guanyu.MdiParent = this;
+            guanyu.WindowState = FormWindowState.Maximized;
+            guanyu.Show();
         }
     }
 }
