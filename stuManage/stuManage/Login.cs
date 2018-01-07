@@ -3,19 +3,18 @@
  * **/
 using System;
 using System.Collections.Generic;
-using stuManage.Model;
 using System.Windows.Forms;
 
 namespace stuManage
 {
-    public partial class Demglu : DevExpress.XtraEditors.XtraForm
+    public partial class Login : DevExpress.XtraEditors.XtraForm
     {
-        public Demglu()
+        public Login()
         {
             InitializeComponent();
         }
 
-        private stuManage.BLL.Employee eBll = new BLL.Employee();
+        stuManage.BLL.Employee eBll = new BLL.Employee();
         private void sBtn_cancle_Click(object sender, EventArgs e)
         {
             Close();
@@ -29,7 +28,15 @@ namespace stuManage
             }
             else
             {
-                
+                stuManage.Model.Employee employee = eBll.GetModel(txtName.Text.Trim(), txtPassed.Text.Trim());
+                if (null != employee)
+                {
+                    this.Visible = false;
+                    MainFrom main = new MainFrom();
+                    main.ShowDialog();
+                }
+                else
+                    MessageBox.Show("用户名或密码错误", "警告");
             }
         }
     }

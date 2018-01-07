@@ -19,7 +19,8 @@ namespace stuManage
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
-            Application.Run(new MainFrom());
+            //Application.Run(new MainFrom());
+            Application.Run(new Login());
         }
     }
 }

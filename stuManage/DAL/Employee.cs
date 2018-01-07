@@ -154,15 +154,21 @@ namespace stuManage.SQLServerDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public stuManage.Model.Employee GetModel(string emp_num)
+		//public stuManage.Model.Employee GetModel(string emp_num)
+        public stuManage.Model.Employee GetModel(string emp_name, string emp_passwd)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 emp_num,emp_name,emp_passwd,emp_age,flo_num,emp_sex,con_infor from Employee ");
-			strSql.Append(" where emp_num=@emp_num ");
+			//strSql.Append(" where emp_num=@emp_num ");
+            strSql.Append(" where emp_name=@emp_name and emp_passwd=@emp_passwd ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@emp_num", SqlDbType.Char,10)			};
-			parameters[0].Value = emp_num;
+					//new SqlParameter("@emp_num", SqlDbType.Char,10)
+                      new SqlParameter("@emp_name", SqlDbType.Char,10),
+                      new SqlParameter("@emp_passwd", SqlDbType.Char,10)};
+			//parameters[0].Value = emp_num;
+            parameters[0].Value = emp_name;
+            parameters[1].Value = emp_passwd;
 
 			stuManage.Model.Employee model=new stuManage.Model.Employee();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);

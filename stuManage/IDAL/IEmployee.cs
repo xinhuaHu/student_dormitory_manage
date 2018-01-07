@@ -28,7 +28,8 @@ namespace stuManage.IDAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		stuManage.Model.Employee GetModel(string emp_num);
+		//stuManage.Model.Employee GetModel(string emp_num);
+        stuManage.Model.Employee GetModel(string emp_name, string emp_passwd);
 		stuManage.Model.Employee DataRowToModel(DataRow row);
 		/// <summary>
 		/// 获得数据列表

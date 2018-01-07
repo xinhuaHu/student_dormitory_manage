@@ -51,11 +51,17 @@ namespace stuManage.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public stuManage.Model.Employee GetModel(string emp_num)
-		{
+        //public stuManage.Model.Employee GetModel(string emp_num)
+        //{
 			
-			return dal.GetModel(emp_num);
-		}
+        //    return dal.GetModel(emp_num);
+        //}
+
+        public stuManage.Model.Employee GetModel(string emp_name, string emp_passwd)
+        {
+
+            return dal.GetModel(emp_name, emp_passwd);
+        }
 
 		/// <summary>
 		/// 获得数据列表

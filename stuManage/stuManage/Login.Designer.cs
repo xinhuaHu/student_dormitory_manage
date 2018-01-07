@@ -1,6 +1,6 @@
 ﻿namespace stuManage
 {
-    partial class Demglu
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -72,10 +72,12 @@
             // 
             // txtPassed
             // 
+            this.txtPassed.EditValue = "";
             this.txtPassed.Location = new System.Drawing.Point(234, 335);
             this.txtPassed.Name = "txtPassed";
             this.txtPassed.Properties.Appearance.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassed.Properties.Appearance.Options.UseFont = true;
+            this.txtPassed.Properties.UseSystemPasswordChar = true;
             this.txtPassed.Size = new System.Drawing.Size(112, 26);
             this.txtPassed.TabIndex = 3;
             // 
@@ -106,7 +108,7 @@
             this.labelControl3.TabIndex = 6;
             this.labelControl3.Text = "欢   迎   登   录";
             // 
-            // Demglu
+            // Login
             // 
             this.Appearance.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Appearance.Options.UseFont = true;
@@ -120,7 +122,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.sBtn_cancle);
             this.Controls.Add(this.sBtn_queding);
-            this.Name = "Demglu";
+            this.Name = "Login";
             this.Text = "登录";
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassed.Properties)).EndInit();
