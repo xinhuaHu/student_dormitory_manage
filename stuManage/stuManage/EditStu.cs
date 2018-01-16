@@ -21,7 +21,6 @@ namespace stuManage
         public bool isadd = true;
         public string num;
 
-
         private void EditStu_Load(object sender, EventArgs e)
         {
             if (isadd)
@@ -69,6 +68,11 @@ namespace stuManage
         private void sBtn_Cancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void groupControl1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
     }

@@ -98,6 +98,7 @@
             this.groupControl1.Size = new System.Drawing.Size(862, 372);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "修   改";
+            this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
             // Stupro
             // 
@@ -137,7 +138,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DateStuTime.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.DateStuTime.Size = new System.Drawing.Size(100, 26);
+            this.DateStuTime.Size = new System.Drawing.Size(100, 24);
             this.DateStuTime.TabIndex = 41;
             // 
             // labelControl7
